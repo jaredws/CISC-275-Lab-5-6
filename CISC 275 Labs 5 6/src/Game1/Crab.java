@@ -72,7 +72,6 @@ public class Crab extends MovingObject {
 	 */
 	public void clicked(int i){
 		if(i==1){speed=-7*n;n+=1;};
-		
 	}
 	/* (non-Javadoc)
 	 * @see Game1.MovingObject#update()

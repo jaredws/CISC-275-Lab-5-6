@@ -29,5 +29,33 @@ public class CrabTest {
 		c.setMode(3);
 		assertEquals("Mode should be set to 3",c.getMode(),3);
 	}
+	
+	@Test
+	public void setSpeedTest() {
+		c.setSpeed(5);
+		assertEquals("Speed should be set to 5",(int)c.speed,5);
+	}
+	
+	@Test
+	public void clickedTest() {
+		c.n = -1;
+		c.clicked(1);
+		assertEquals("Speed should be 7",(int)c.speed,7);
+		assertEquals("n should be 0",c.n,0);
+		
+		c.n=2;
+		c.clicked(2);
+		assertEquals("n should be 0",c.n,2);
+		//Nothing Happens
+	}
+	
+	/*@Test
+	public void updateTest3() {
+		//3rd Branch
+		c.currheight = 3;c.setSpeed(5);
+		c.update();
+		assertTrue("Speed should be 0",c.speed==0);
+		assertTrue("currHeight should be 0",c.currheight==0);
+	}*/
 
 }

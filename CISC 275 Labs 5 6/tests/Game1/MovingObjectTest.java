@@ -68,5 +68,23 @@ public class MovingObjectTest {
 		
 	}
 	
+	@Test
+	public void setPositionTest() {
+		MovingObject m = new MovingObject(1,1,1);
+		Point p = new Point(1,2);
+		m.setPosition(p);
+		assertTrue("Position should be at (1,2)",m.getPosition().equals(p));
+	}
+	
+	@Test
+	public void moveTest() {
+		MovingObject m = new MovingObject(1,1,1);
+		Point p = new Point(1,2);
+		m.setPosition(p);
+		m.move(3,2);
+		Point p2 = new Point(3,2);
+		assertTrue("Position should be at (3,2)",m.getPosition().equals(p2));
+	}
+	
 	
 }
