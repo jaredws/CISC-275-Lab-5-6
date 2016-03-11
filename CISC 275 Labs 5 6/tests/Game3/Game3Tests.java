@@ -5,6 +5,8 @@ import java.util.Iterator;
 
 import javax.swing.JMenuItem;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import OverallGame.OverallGame;
@@ -17,6 +19,23 @@ import OverallGame.gameWindow;
  * Handles the tests for game 3
  */
 public class Game3Tests {
+	
+	OverallGame testGame;
+	Game3 testGame3;
+	
+	@Before
+	public void setUp() {
+		testGame = new OverallGame();
+		testGame.setGameWindow(new	gameWindow(testGame));
+		testGame.getGameWindow().getFrame().setBounds(0, 0, OverallGame.frameWidth, OverallGame.frameHeight);
+		testGame3	= new Game3(testGame);
+	}
+	
+	@After
+	public void tearDown() {
+		testGame = null;
+	}
+	
 	/**
 	 * First	Test:	Checks if the method properly adds score
 	 * Second	Test:	Checks if the mussels correctly grow per update
@@ -26,9 +45,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testUpdate() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		assertFalse(2	<	testGame3.getMussels().get(0).getStage());
 		testGame3.setTime(0.05);
@@ -67,10 +83,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testOnClick() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		testGame.getGameWindow().getFrame().setBounds(0, 0, OverallGame.frameWidth, OverallGame.frameHeight);
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getMussels().get(0).setStage(50);
 		testGame3.getTimer().stop();
 		int	musselX	=	testGame3.getMussels().get(0).getXLoc()+30;
@@ -105,9 +117,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testMenuRegen() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		JMenuItem initGrass	=	testGame3.getGrass();
 		JMenuItem initMangrove	=	testGame3.getMangrove();
@@ -122,9 +131,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testAddPlant() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		testGame3.addPlant(0, 0, "Grass");
 		Plant	testPlant	=	new	Plant(0,0,"Grass");
@@ -141,9 +147,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testAddRunoff() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		testGame3.addRunoff();
 		testGame3.addRunoff();
@@ -170,9 +173,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public void testMoveRunoff() {
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		testGame3.getEnemies().removeAll(testGame3.getEnemies());
 		testGame3.addRunoff();
@@ -206,9 +206,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public	void	testBattle()	{
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		testGame3.addPlant(0, 3, "Mangrove");
 		testGame3.getEnemies().set(0, new Runoff(0,4*Game3.scalor+Game3.xOffset));
@@ -238,9 +235,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public	void	testAddMussel()	{
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		testGame3.addMussel();
 		Mussel	testMussel	=	testGame3.getMussels().get(testGame3.getMussels().size()-1);
@@ -268,9 +262,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public	void	testAddMoney()	{
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		assertEquals(testGame3.getMoney()/100,testGame3.getCoins().size());
 		testGame3.setMoney(900);
@@ -293,9 +284,6 @@ public class Game3Tests {
 	 */
 	@Test
 	public	void	testEndGame()	{
-		OverallGame testGame	=	new	OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		Game3		testGame3	=	new	Game3(testGame);
 		testGame3.getTimer().stop();
 		assertEquals(0,testGame.getOverallScore());
 		assertEquals(false,testGame.getGamesComplete()[2]);
@@ -303,6 +291,17 @@ public class Game3Tests {
 		testGame3.endGame("testHighScores.txt");
 		assertEquals(-500,testGame.getOverallScore());
 		assertEquals(true,testGame.getGamesComplete()[2]);
-		
+	}
+	
+	@Test
+	public void setGameRunningTest() {
+		testGame3.setGameRunning(true);
+		assertTrue("Game running should be true",testGame3.isGameRunning());
+	}
+	
+	@Test
+	public void setGameOverTest() {
+		testGame3.setGameOver(false);
+		assertFalse("Game over should be false",testGame3.isGameOver());
 	}
 }

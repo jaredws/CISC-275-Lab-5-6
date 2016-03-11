@@ -13,6 +13,8 @@ import javax.swing.Timer;
 
 import javax.swing.JFrame;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import Game1.RipRapGame;
@@ -29,6 +31,17 @@ public class CrabCatcherGameTest {
 	
 	JFrame frame = new JFrame();
 	OverallGame bigGame = makeTestBigGame();
+	CrabCatcherGame c;
+	
+	@Before
+	public void setUp() {
+		c = new CrabCatcherGame(0, null, 0, 0, 0, null, 0, false, bigGame, frame);
+	}
+	
+	@After
+	public void tearDown() {
+		c = null;
+	}
 	
 	/**makes an overall game for testing
 	 * @return
@@ -318,6 +331,30 @@ public class CrabCatcherGameTest {
 		
 		game.updateScore(-1);
 		assertEquals("score should not go negative", 0, game.getScore());
+	}
+	
+	@Test
+	public void setSpeedTest() {
+		c.setSpeed(50);
+		assertEquals("Speed should be 50",(int)c.getSpeed(),50);
+	}
+	
+	@Test
+	public void getSpeedTest() {
+		c.setSpeed(25);
+		assertEquals("Speed should be 25",(int)c.getSpeed(),25);
+	}
+	
+	@Test
+	public void setGameLengthTest() {
+		c.setGameLength(60);
+		assertEquals("Game length should be 60",(int)c.getGameLength(),60);
+	}
+	
+	@Test
+	public void setMaxAnimalsOnScreenTest() {
+		c.setMaxAnimalsOnScreen(2);
+		assertEquals("Max Animals should be 2",(int)c.getMaxAnimalsOnScreen(),2);
 	}
 		
 

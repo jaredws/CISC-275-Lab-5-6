@@ -8,14 +8,28 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import junit.framework.TestCase;
 
 public class AnimalTest {
-	Animal crab = new Animal(10, 15, "crab", -5,
-			10, true);
-	Animal fish = new Animal(20, 15, "fish", -3, 10, true);
+	Animal crab;
+	Animal fish;
+	
+	@Before
+	public void setUp() {
+		crab = new Animal(10, 15, "crab", -5,10, true);
+		fish = new Animal(20, 15, "fish", -3, 10, true);
+	}
+	
+	@After
+	public void tearDown() {
+		crab = null;
+		fish = null;
+	}
+	
 
 	
 	@Test
