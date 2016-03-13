@@ -304,4 +304,10 @@ public class Game3Tests {
 		testGame3.setGameOver(false);
 		assertFalse("Game over should be false",testGame3.isGameOver());
 	}
+	
+	@Test
+	public void setStartTime() {
+		testGame3.setStartTime(5);
+		assertTrue("Start time should be 5",testGame3.getStartTime()==5);
+	}
 }

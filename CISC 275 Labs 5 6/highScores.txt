@@ -1,5 +1,6 @@
+Steven:		1000000
 Brendan:	42000
 Danielle:	3915
+Leighann:	1975
 David:	666
-test:	520
 test:	520
