@@ -93,7 +93,7 @@ public class Runoff implements java.io.Serializable{
 	 * Getters and Setters
 	 */
 	public String toString(){
-		return "Runoff [ Row: "+row+", Front Location: "+front+", Strength: "+strength+"Health: "+health+", TicksSinceMoved: "
+		return "Runoff [ Row: "+row+", Front Location: "+front+", Strength: "+strength+", Health: "+health+", TicksSinceMoved: "
 				+ticksSinceMoved+"]";
 	}
 	public int getRow() {
