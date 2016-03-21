@@ -387,6 +387,7 @@ public class OverallGame implements Serializable{
 	 */
 	public Game3 getGame3() {
 		return game3;
+		
 	}
 
 	/**
