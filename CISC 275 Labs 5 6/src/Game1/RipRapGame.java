@@ -45,19 +45,61 @@ import java.util.Random;
 
 public class RipRapGame implements java.io.Serializable{
 	 
-
-	
-
+	/**
+	 * Get Crab
+	 * @return crab
+	 */
 	public Crab getCrab() {return crab;}
+	
+	/**
+	 * Set Crab
+	 * @param crab
+	 */
 	public void setCrab(Crab crab) {this.crab = crab;}
+	/**
+	 * Get JumpingBar
+	 * @return jumpingBar
+	 */
 	public JumpingBar getJumpingBar() {	return jumpingBar;}
+	/**
+	 * Set JumpingBar
+	 * @param jumpingBar
+	 */
 	public void setJumpingBar(JumpingBar jumpingBar) {this.jumpingBar = jumpingBar;}
+	/**
+	 * Get Sun
+	 * @return sun
+	 */
 	public Sun getSun() {return sun;}
+	/**
+	 * Set Sun
+	 * @param sun
+	 */
 	public void setSun(Sun sun) {this.sun = sun;}
+	/**
+	 * Get Score
+	 * @return score
+	 */
 	public int getScore(){return score;}
+	/**
+	 * Get Time
+	 * @return time as an int
+	 */
 	public int getTime() {return currtime;}
+	/**
+	 * Get the entire game
+	 * @return bigGame
+	 */
 	public OverallGame getBigGame() {	return bigGame;}
+	/**
+	 * Set the overall Game
+	 * @param bigGame
+	 */
 	public void setBigGame(OverallGame bigGame) {	this.bigGame= bigGame;}
+	/**
+	 * @return Returns a string of score, time, start time, crab, jumping bar, and all objects dilimited by spaces
+	 */
+	
 	public String toString()
     {
         return "[RipRapGame: score=" + score + 
@@ -115,8 +157,8 @@ public class RipRapGame implements java.io.Serializable{
 
 	/**
 	 * Add points while game goes on
-	 * lose points if fail to climb over a obstacle
-	 * @param s score that is added to the score
+	 * lose points if player fail to climb over a obstacle
+	 * @param s score that is added to the score, negative to deduct points
 	 */
 	public void addScore(int s){
 		score+=s;
@@ -231,7 +273,7 @@ public class RipRapGame implements java.io.Serializable{
 	}
 	/**
 	 * Run this for the beginning
-	 * @return ture
+	 * @return true
 	 */
 	public boolean firstRunPanel(){
 		TS = new JLabel("Score:"+this.score);

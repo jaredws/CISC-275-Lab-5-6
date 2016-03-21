@@ -212,6 +212,6 @@ public class AnimalTest {
 		crab.setRandomXDir();
 		assertTrue(crab.getXdir() == -1 || crab.getXdir() == 1);
 	}
-	
+
 
 }

@@ -224,11 +224,19 @@ public class Animal implements java.io.Serializable {
 
 	
 	//GETTERS & SETTERS
+	/**
+	 * Get x Location
+	 * @return x Location as an int
+	 */
 	public int getXloc() {
 		return xloc;
 	}
 
 	@Override
+	/**
+	 * Overridden toString method 
+	 * Animal crab [location=(x, y), scoreEffect, timeLeft, visibility]
+	 */
 	public String toString() {
 		return "Animal " + typeOfAnimal + " [location=(" + xloc + ", " + yloc + ")" + ", scoreEffect=" + scoreEffect
 				+ ", timeLeft=" + timeLeftOnScreen + ", visible="
