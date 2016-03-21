@@ -5,32 +5,27 @@ import static org.junit.Assert.*;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import junit.framework.TestCase;
-
 public class AnimalTest {
-	Animal crab;
-	Animal fish;
 	
-	@Before
-	public void setUp() {
+	static Animal crab;
+	static Animal fish;
+	
+	@BeforeClass
+	public static void setUpBeforeClass() {
 		crab = new Animal(10, 15, "crab", -5,10, true);
 		fish = new Animal(20, 15, "fish", -3, 10, true);
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public static void tearDownAfterClass() {
 		crab = null;
 		fish = null;
 	}
-	
-
 	
 	@Test
 	public void offScreenDetectionTest(){
@@ -211,6 +206,53 @@ public class AnimalTest {
 		
 		crab.setRandomXDir();
 		assertTrue(crab.getXdir() == -1 || crab.getXdir() == 1);
+	}
+	
+	@Test
+	public void setTypeOfAnimalTest() {
+		crab.setTypeOfAnimal("fish");
+		assertTrue("Type of animal should be fish",crab.getTypeOfAnimal().equals("fish"));
+	}
+	
+	@Test
+	public void setScoreEffectTest() {
+		crab.setScoreEffect(3);
+		assertEquals("ScoreEffect should be 3",crab.getScoreEffect(),3);
+	}
+	
+	@Test
+	public void setDisplayDurationTest() {
+		crab.setDisplayDuration(10.0);
+		assertEquals("DisplayDuration should be 10",(int)crab.getDisplayDuration(),10);
+	}
+	
+	@Test
+	public void setVisibleTest() {
+		crab.setVisible(true);
+		assertTrue("Crab should be visible",crab.isVisible());
+	}
+	
+	@Test
+	public void setCaughtTest() {
+		crab.setCaught(false);
+		assertFalse("Crab should not be caught",crab.isCaught());
+	}
+	
+	@Test
+	public void setOffScreenTest() {
+		crab.setOffScreen(false);
+		assertFalse("Crab should not be offscreen",crab.isOffScreen());
+	}
+	
+	@Test
+	public void setStepTest() {
+		crab.setStep(5);
+		assertEquals("Step should be 5",crab.getStep(),5);
+	}
+	
+	@Test
+	public void toStringTest() {
+		assertTrue("toString should contain 'Animal crab'",crab.toString().contains("scoreEffect=-5"));
 	}
 
 

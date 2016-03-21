@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game2.Animal;
@@ -18,16 +20,16 @@ import OverallGame.gameWindow;
 
 public class RipRapGameTest {
 	
-	RipRapGame r;
-	OverallGame o;
-	Crab c;
-	JumpingBar j;
-	Sun s;
+	static RipRapGame r;
+	static OverallGame o;
+	static Crab c;
+	static JumpingBar j;
+	static Sun s;
 	boolean[] b = {true,false};
-	gameWindow w;
+	static gameWindow w;
 	
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUp() throws Exception {
 		o = new OverallGame();
 		w = new gameWindow(o);
 		o.setGameWindow(w);
@@ -37,8 +39,8 @@ public class RipRapGameTest {
 		s = new Sun(43);
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDown() throws Exception {
 		o = null;
 		r = null;
 		c = null;

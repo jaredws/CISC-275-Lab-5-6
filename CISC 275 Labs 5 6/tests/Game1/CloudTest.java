@@ -37,7 +37,11 @@ public class CloudTest {
 		c.update();
 		assertEquals("X position should be 2",(int)c.getPosition().getX(),2);
 		c.speed = 10;
-		
+		c.update();
+		assertEquals("X position should be 0",(int)c.getPosition().getX(),0);
+		c.speed = 0;
+		c.update();
+		assertEquals("X position should be 0",(int)c.getPosition().getX(),0);
 	}
 
 }

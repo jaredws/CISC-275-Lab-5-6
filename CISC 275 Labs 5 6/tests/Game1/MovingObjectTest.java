@@ -20,7 +20,7 @@ public class MovingObjectTest {
 		assertEquals(100,m.getSize());
 		JPanel p=new JPanel();
 		assertTrue(m.addItem(p, "images/sun1.png"));
-		
+		m.update();
 	}
 	/**
 	 * Test the crab

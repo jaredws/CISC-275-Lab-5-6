@@ -2,6 +2,8 @@ package Game1;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Point;
+
 import javax.swing.JPanel;
 
 import org.junit.AfterClass;
@@ -52,5 +54,14 @@ public class JumpingBarTest {
 		assertEquals(j2.getCurrentValue(),0);// Inital currentValue should be 0
 		j2.setSpeed(1);//set speed by 1, then currentValue will be changed by 1 each second
 		assertEquals(j2.getSpeed(),1);
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void updateTest() {
+		JPanel jp = new JPanel();
+		jp.setBounds(12, 14, 43, 56);
+		j.makeLabels(jp);
+		j.distTest = 0;
+		j.update(jp);
 	}
 }

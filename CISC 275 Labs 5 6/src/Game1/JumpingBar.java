@@ -23,6 +23,7 @@ public class JumpingBar implements Serializable{
 	int speed;
 	int barloc;
 	boolean passed;
+	int distTest;
 	RipRapGame game;
 	JLabel bar;
 	/**
@@ -133,7 +134,7 @@ public class JumpingBar implements Serializable{
 		int h=(int)(0.5*p.getHeight()/9);
 		int distance=(int) ((this.game.stone.getPosition().getX()-this.game.getCrab().getPosition().getX())/5)
 				-this.game.stone.getSize()/4;
-		
+		distance = distTest;
 		if(distance<=0){
 			if(passed==false){
 			this.game.stone.kicked();
