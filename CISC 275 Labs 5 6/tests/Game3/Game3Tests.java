@@ -310,4 +310,5 @@ public class Game3Tests {
 		testGame3.setStartTime(5);
 		assertTrue("Start time should be 5",testGame3.getStartTime()==5);
 	}
+	
 }
