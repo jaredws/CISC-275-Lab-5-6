@@ -293,7 +293,7 @@ public class CrabCatcherGame implements java.io.Serializable{
 	}
 	
 	/**called on each tick, this updates panel visuals (text and graphics)
-	 * @return
+	 * @return true when complete
 	 */
 	public boolean updatePanel(){
 		//visual updates
@@ -569,130 +569,209 @@ public class CrabCatcherGame implements java.io.Serializable{
 	
 	
 	//GETTERS & SETTERS
+	/**
+	 * Get time as a double
+	 * @return time
+	 */
 	public double getTime() {
 		return time;
 	}
 
-
+	/**
+	 * Set the time as a double
+	 * @param time
+	 */
 	public void setTime(double time) {
 		this.time = time;
 	}
 
-
+	/**
+	 * Get the Speed as a double
+	 * @return speed
+	 */
 	public double getSpeed() {
 		return speed;
 	}
 
-
+	/**
+	 * Set the Speed as a double
+	 * @param speed double
+	 */
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
 
-
+	/**
+	 * Get the animals in the game
+	 * @return animals an ArrayList of Animals
+	 */
 	public ArrayList<Animal> getAnimals() {
 		return animals;
 	}
 
-
+	/**
+	 * Set the Animals in the game
+	 * @param animals an ArrayList of Animals
+	 */
 	public void setAnimals(ArrayList<Animal> animals) {
 		this.animals = animals;
 	}
 
-
+	/**
+	 * Get the Score as an int
+	 * @return score
+	 */
 	public int getScore() {
 		return score;
 	}
 
-
+	/**
+	 * Set the Score as an int
+	 * @param score
+	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
-
+	/**
+	 * Get the Current Duration of the Game
+	 * @return gameLengthInMilliSeconds as a double
+	 */
 	public double getGameLength() {
 		return gameLengthInMilliseconds;
 	}
 
-
+	/**
+	 * Set the current duration of the game
+	 * @param gameLength as a double
+	 */
 	public void setGameLength(double gameLength) {
 		this.gameLengthInMilliseconds = gameLength;
 	}
 
-
+	/**
+	 * Get the MouseListener
+	 * @return mouseListener
+	 */
 	public MouseListener getMouseListener() {
 		return mouseListener;
 	}
 
-
+	/**
+	 * Set the MouseListener
+	 * @param mouseListener
+	 */
 	public void setMouseListener(MouseAdapter mouseListener) {
 		this.mouseListener = mouseListener;
 	}
 
-
+	/**
+	 * Get the maximum number of animals on the screen
+	 * @return maxAnimalsOnScreen as an int
+	 */
 	public int getMaxAnimalsOnScreen() {
 		return maxAnimalsOnScreen;
 	}
 
-
+	/**
+	 * Set the maximum number of animals on the screen
+	 * @param maxAnimalsOnScreen as an int
+	 */
 	public void setMaxAnimalsOnScreen(int maxAnimalsOnScreen) {
 		this.maxAnimalsOnScreen = maxAnimalsOnScreen;
 	}
 
-
+	/**
+	 * Return whether the game is over true/false
+	 * @return gameOver boolean
+	 */
 	public boolean isGameOver() {
 		return gameOver;
 	}
 
-
+	/**
+	 * Set the gameOver status true/false
+	 * @param gameOver boolean
+	 */
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
 	}
 
-
+	/**
+	 * Get the overall Game
+	 * @return bigGame
+	 */
 	public OverallGame getBigGame() {
 		return bigGame;
 	}
 
-
+	/**
+	 * Set the overallGame
+	 * @param bigGame
+	 */
 	public void setBigGame(OverallGame bigGame) {
 		this.bigGame = bigGame;
 	}
 
 
-
+	/**
+	 * Get the JFrame
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
 
-
+	/**
+	 * Set the JFrame
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	/**
+	 * Get the JPanel
+	 * @return panel
+	 */
 	public JPanel getPanel() {
 		return panel;
 	}
-
+	/**
+	 * Set the JPanel
+	 * @param panel
+	 */
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
 	}
-
+	/**
+	 * Get the timer
+	 * @return timer
+	 */
 	public Timer getTimer() {
 		return timer;
 	}
-
+	/**
+	 * Set the timer object
+	 * @param timer
+	 */
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
 
 
-
+	/**
+	 * Get the Result Animations
+	 * @return resultAnims an ArrayList of ResultAnimations
+	 */
 	public ArrayList<ResultAnimation> getResultAnims() {
 		return resultAnims;
 	}
 
 
-
+	/**
+	 * Set the Resulting Animations
+	 * @param resultAnims an ArrayList of ResultAnimations
+	 */
 	public void setResultAnims(ArrayList<ResultAnimation> resultAnims) {
 		this.resultAnims = resultAnims;
 	}
