@@ -55,35 +55,67 @@ public class Mussel implements java.io.Serializable{
 	
 	/**
 	 * Getters and Setters
-	 * @return
+	 */
+	/**
+	 * Get the Stage as an int
+	 * @return stage
 	 */
 	public int getStage() {
 		return stage;
 	}
+	/**
+	 * Get the x Location as an int
+	 * @return xlocation
+	 */
 	public int getXLoc() {
 		return xloc;
 	}
+	/**
+	 * Get the y location as an int
+	 * @return ylocation
+	 */
 	public int getYLoc() {
 		return yloc;
 	}
+	/**
+	 * Get the Mussel Image
+	 * @return musselDrawing formatted
+	 */
 	public Image getMusselDrawing() {
 		return musselDrawing.getScaledInstance((9/5)*Game3.scalor*(getStage() + 1)/101 + 1, Game3.scalor*(getStage() + 1)/101 + 1, 1);
 	}
-
+	/**
+	 * Set the Stage int
+	 * @param stage
+	 */
 	public void setStage(int stage) {
 		this.stage = stage;
 	}
+	/**
+	 * Set the x Location
+	 * @param xLoc
+	 */
 	public void setXLoc(int xLoc) {
 		this.xloc = xLoc;
 	}
+	/**
+	 * Set the y Location
+	 * @param yLoc
+	 */
 	public void setYLoc(int yLoc) {
 		this.yloc = yLoc;
 	}
-	
+	/**
+	 * Set the Mussel Image
+	 * @param newDrawing
+	 */
 	public void setMusselDrawing(Image newDrawing) {
 		this.musselDrawing = newDrawing;
 	}
-	
+	/**
+	 * Overridden toString
+	 * MUssels [Xloc: x, Yloc: y, Stage: stage]
+	 */
 	public String toString(){
 		return "Mussels [ Xloc: "+xloc+", Yloc: "+yloc+", Stage: "+stage +"]";
 	}

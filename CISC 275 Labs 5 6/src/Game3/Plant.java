@@ -95,45 +95,80 @@ public class Plant extends Tile implements Serializable{
 	/**
 	 * Getters for all attributes
 	 */
+	/**
+	 * Get the Row
+	 * @return row
+	 */
 	public int getRow() {
 		return row;
 	}
-
+	/**
+	 * Set the Row int
+	 * @param row
+	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
-
+	/**
+	 * Get the Column int
+	 * @return col
+	 */
 	public int getCol() {
 		return col;
 	}
-
+	/**
+	 * Set the Column int 
+	 * @param col
+	 */
 	public void setCol(int col) {
 		this.col = col;
 	}
-
+	/**
+	 * Get the Strength int
+	 * @return strength
+	 */
 	public int getStrength() {
 		return strength;
 	}
-
+	/**
+	 * Set the Strength int
+	 * @param strength
+	 */
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
-
+	/**
+	 * Get the Health value int
+	 * @return health
+	 */
 	public int getHealth() {
 		return health;
 	}
-
+	/**
+	 * Set the Health value int
+	 * @param health
+	 */
 	public void setHealth(int health) {
 		this.health = health;
 	}
-
+	/**
+	 * Get the Type string
+	 * @return type
+	 */
 	public String getType() {
 		return type;
 	}
-
+	/**
+	 * Set the Type string
+	 * @param type
+	 */
 	public void setType(String type) {
 		this.type = type;
 	}
+	/**
+	 * Get the Image depending on the health score
+	 * @return image[appropriate index]
+	 */
 	public Image getImage() {
 		if (getHealth() > 80*2/3) {
 			return image[0];
@@ -145,6 +180,10 @@ public class Plant extends Tile implements Serializable{
 			return image[2];
 		}
 	}
+	/**
+	 * Overridden toString
+	 * Plants [ Row: row, Col: col, Strength: strength, Health: health, Type: type]
+	 */
 	public String toString(){
 		return "Plants [ Row: "+row+", Col: "+col+", Strength: "+strength+", Health: "+health+", Type: "+type+"]";
 	}
@@ -191,7 +230,17 @@ public class Plant extends Tile implements Serializable{
 		}
 		return obj;
 	}
-
+	/**
+	 * Plant Constructor  
+	 * @param row x location
+	 * @param col y location
+	 * @param row2
+	 * @param col2
+	 * @param strength
+	 * @param health
+	 * @param type
+	 * @param image
+	 */
 	public Plant(int row, int col, int row2, int col2, int strength,
 			int health, String type, Image[] image) {
 		super(row, col);

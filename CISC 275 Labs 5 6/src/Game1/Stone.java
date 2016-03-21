@@ -34,7 +34,7 @@ public class Stone extends MovingObject {
 	}
 	
 	
-	/**  action if kicked change the speed and acceleration
+	/**  action, if kicked change the speed and acceleration
 	 * 
 	 */
 	public void kicked(){
@@ -47,6 +47,9 @@ public class Stone extends MovingObject {
 	 * @see Game1.MovingObject#update()
 	 * update function for stone
 	 * 
+	 */
+	/**
+	 * Update the location 
 	 */
 	public void update(){
 		if(tick>0)tick-=1;

@@ -117,55 +117,94 @@ public class ResultAnimation implements Serializable{
 	
 	
 	//GETTERS & SETTERS
-
+	/**
+	 * Get the Current Image
+	 * @return images[PictureNumber] the image in at the current Picture number in the array of Images
+	 */
 	public Image getCurrentImage(){
 		return images[getPicNum()];
 	}
-	
+	/**
+	 * Get the array of Images
+	 * @return images an array of Images
+	 */
 	public Image[] getImages() {
 		return images;
 	}
-
+	/**
+	 * SEt the array of Images
+	 * @param images an array of Images
+	 */
 	public void setImages(Image[] images) {
 		this.images = images;
 	}
-
+	/**
+	 * Get the size of the Animation
+	 * @return size as an int
+	 */
 	public int getSize() {
 		return size;
 	}
-
+	/**
+	 * Set the size of the Animation
+	 * @param size as an int
+	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
-
+	/**
+	 * Return whether the Animation has completed true/false
+	 * @return complete boolean
+	 */
 	public boolean isComplete() {
 		return complete;
 	}
-
+	/**
+	 * Set the complete status true/false
+	 * @param complete boolean
+	 */
 	public void setComplete(boolean complete) {
 		this.complete = complete;
 	}
-
+	/**
+	 * Get the x location as an int
+	 * @return xlocation
+	 */
 	public int getXloc() {
 		return xloc;
 	}
-	
+	/**
+	 * Get the y location as an int
+	 * @return ylocation
+	 */
 	public int getYloc() {
 		return yloc;
 	}
-
+	/**
+	 * Get the current index of the picture in the array of images, an int
+	 * @return picNum
+	 */
 	public int getPicNum() {
 		return picNum;
 	}
-
+	/**
+	 * Set the current index of the picture in the array of images, an int
+	 * @param picNum
+	 */
 	public void setPicNum(int picNum) {
 		this.picNum = picNum;
 	}
-
+	/**
+	 * Get the number of loops through the array of images as an int
+	 * @return loops
+	 */
 	public int getLoops() {
 		return loops;
 	}
-
+	/**
+	 * Set the number of loops through the array of images, as an int
+	 * @param loops
+	 */
 	public void setLoops(int loops) {
 		this.loops = loops;
 	}

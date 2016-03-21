@@ -16,7 +16,11 @@ public class Tile {
 	Image   image;
 	
 	
-	
+	/**
+	 * Tile constructor
+	 * @param row
+	 * @param col
+	 */
 	public Tile(int row, int col) {
 		super();
 		this.row = row;
@@ -28,21 +32,45 @@ public class Tile {
 			System.out.println("Read Error: " + e.getMessage());
 		}
 	}
+	/**
+	 * Get the Row int
+	 * @return row
+	 */
 	public int getRow() {
 		return row;
 	}
+	/**
+	 * Set the Row int
+	 * @param row
+	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
+	/**
+	 * Get the Column int
+	 * @return col
+	 */
 	public int getCol() {
 		return col;
 	}
+	/**
+	 * Set the Column int
+	 * @param col
+	 */
 	public void setCol(int col) {
 		this.col = col;
 	}
+	/**
+	 * Get the current Image 
+	 * @return image
+	 */
 	public Image getImage() {
 		return image;
 	}
+	/**
+	 * Set the current Image
+	 * @param image
+	 */
 	public void setImage(Image image) {
 		this.image = image;
 	}

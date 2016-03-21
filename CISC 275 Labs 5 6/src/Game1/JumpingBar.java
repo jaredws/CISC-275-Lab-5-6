@@ -125,7 +125,7 @@ public class JumpingBar implements Serializable{
 	/**
 	 * Update the location of the jumping black bar based on the Distance
 	 * Check if the crab kicked the stone
-	 * @param p panel 
+	 * @param p JPanel 
 	 * 
 	 */
 	public void update(JPanel p){

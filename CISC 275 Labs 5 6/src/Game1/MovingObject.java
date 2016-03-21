@@ -38,6 +38,7 @@ public JLabel getLabel() {
 }
 /**
  * Update the location of Objects
+ * To be overridden by subclasses
  */
 public void update(){
 	
@@ -73,6 +74,10 @@ public boolean addItem(JPanel p,String filename){
 public Point getPosition(){
 	return position;
 }
+/**
+ * Set the current position Point
+ * @param position
+ */
 
 public void setPosition(Point position) {
 	this.position = position;

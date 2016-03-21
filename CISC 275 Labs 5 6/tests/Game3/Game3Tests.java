@@ -563,4 +563,5 @@ public class Game3Tests {
 		g.onClick(e3);
 		assertFalse("Menu should not be visible",g.getMenu().isVisible());
 	}
+	
 }

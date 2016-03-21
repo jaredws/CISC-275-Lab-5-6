@@ -271,91 +271,151 @@ public class OverallGame implements Serializable{
 	/**
 	 * Getters and Setters for the necessary parameters
 	 */
+	
+	/**
+	 * Get the Overall Game Score int
+	 * @return overallScore
+	 */
 	public int getOverallScore() {
 		return overallScore;
 	}
 
-
+	/**
+	 * Set the Overall Score int
+	 * @param overallScore
+	 */
 	public void setOverallScore(int overallScore) {
 		this.overallScore = overallScore;
 	}
 
-
+	/**
+	 * Get the boolean array of GamesCompleted
+	 * @return gamesComplete
+	 */
 	public boolean[] getGamesComplete() {
 		return gamesComplete;
 	}
 
-
+	/**
+	 * Set the Games Competed boolean array
+	 * @param gamesComplete
+	 */
 	public void setGamesComplete(boolean[] gamesComplete) {
 		this.gamesComplete = gamesComplete;
 	}
 
-
+	/**
+	 * Get the int number of Games Running
+	 * @return gamesRunning
+	 */
 	public int getGamesRunning() {
 		return gamesRunning;
 	}
-
+	/**
+	 * Set Games Running int
+	 * @param gameRunning
+	 */
 	public void setGamesRunning(int gameRunning) {
 		this.gamesRunning = gameRunning;
 	}
-
+	/**
+	 * Get High Scores string
+	 * @return highscores
+	 */
 	public String getHighscores() {
 		return highscores;
 	}
-
+	/**
+	 * Set High Scores string
+	 * @param highscores
+	 */
 	public void setHighscores(String highscores) {
 		this.highscores = highscores;
 	}
 
-
+	/**
+	 * Get Time in Idle double
+	 * @return timeInIdle
+	 */
 	public double getTimeInIdle() {
 		return timeInIdle;
 	}
 
-
+	/**
+	 * Set Time in Idle double
+	 * @param timeInIdle
+	 */
 	public void setTimeInIdle(double timeInIdle) {
 		this.timeInIdle = timeInIdle;
 	}
 
-
+	/**
+	 * Get the CrabCatcherGame
+	 * @return game1
+	 */
 	public CrabCatcherGame getGame2() {
 		return game1;
 	}
 
-
+	/**
+	 * Set the CrabCatcher Game
+	 * @param game1
+	 */
 	public void setGame2(CrabCatcherGame game1) {
 		this.game1 = game1;
 	}
 
-
+	/**
+	 * Get the RipRapGame
+	 * @return game2
+	 */
 	public RipRapGame getGame1() {
 		return game2;
 	}
 
-
+	/**
+	 * Set the RipRap Game
+	 * @param game2
+	 */
 	public void setGame1(RipRapGame game2) {
 		this.game2 = game2;
 	}
 
-
+	/**
+	 * Get Game3
+	 * @return game3
+	 */
 	public Game3 getGame3() {
 		return game3;
+		
 	}
 
-
+	/**
+	 * Set Game3 the final Game
+	 * @param game3
+	 */
 	public void setGame3(Game3 game3) {
 		this.game3 = game3;
 	}
 
-
+	/**
+	 * Get the SerialVersionUID
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	} ;
-	
+	/**
+	 * Get the GameWindow frame
+	 * @return frame
+	 */
 	public gameWindow getGameWindow() {
 		return frame;
 	}
-	
+	/**
+	 * Set the GameWindow frame
+	 * @param frame
+	 */
 	public void setGameWindow(gameWindow frame) {
 		this.frame = frame;
 	}

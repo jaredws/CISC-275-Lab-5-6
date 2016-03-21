@@ -92,66 +92,116 @@ public class Runoff implements java.io.Serializable{
 	/**
 	 * Getters and Setters
 	 */
+	/**
+	 * Overridden toString
+	 * Runoff [ Row: row, Front Location: front, Strength: strength, Health: health, TicksSinceMoved: ticksSinceMoved]
+	 */
 	public String toString(){
 		return "Runoff [ Row: "+row+", Front Location: "+front+", Strength: "+strength+", Health: "+health+", TicksSinceMoved: "
 				+ticksSinceMoved+"]";
 	}
+	/**
+	 * Get the Row int
+	 * @return row
+	 */
 	public int getRow() {
 		return row;
 	}
-
+	/**
+	 * Set the Row int
+	 * @param row
+	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
-
+	/**
+	 * Get the Length int
+	 * @return length
+	 */
 	public int getLength() {
 		return length;
 	}
-
+	/**
+	 * Set the Length int
+	 * @param length
+	 */
 	public void setLength(int length) {
 		this.length = length;
 	}
-
+	/**
+	 * Get the Front int
+	 * @return front
+	 */
 	public int getFront() {
 		return front;
 	}
-
+	/**
+	 * Set the Front int
+	 * @param front
+	 */
 	public void setFront(int front) {
 		this.front = front;
 	}
-
+	/**
+	 * Get the Strength int
+	 * @return strength
+	 */
 	public int getStrength() {
 		return strength;
 	}
-
+	/**
+	 * Set the Strength int
+	 * @param strength
+	 */
 	public void setStrength(int strength) {
 		this.strength = strength;
 	}
-
+	/**
+	 * Get the Health ArrayList of Integers
+	 * @return health
+	 */
 	public ArrayList<Integer> getHealth() {
 		return health;
 	}
-
+	/**
+	 * Set the Health ArrayList of Integers
+	 * @param health
+	 */
 	public void setHealth(ArrayList<Integer> health) {
 		this.health = health;
 	}
-
+	/**
+	 * Get the Ticks Since Moved int
+	 * @return ticksSinceMoved
+	 */
 	public int getTicksSinceMoved() {
 		return ticksSinceMoved;
 	}
-
+	/**
+	 * Set the Ticks Since Moved int
+	 * @param ticksSinceMoved
+	 */
 	public void setTicksSinceMoved(int ticksSinceMoved) {
 		this.ticksSinceMoved = ticksSinceMoved;
 	}
-
+	/**
+	 * Get the ArrayList of Images
+	 * @return images
+	 */
 	public ArrayList<Image> getImages() {
 		return images;
 	}
-
+	/**
+	 * Set ArrayList of Images
+	 * @param images
+	 */
 	public void setImages(ArrayList<Image> images) {
 		this.images = images;
 	}
-
+	/**
+	 * Get the SerialVersionUID
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -178,7 +228,7 @@ public class Runoff implements java.io.Serializable{
 	/**
 	 * Method to read a game state from file and instantiate it. The reverse of the serialize function
 	 * @param fileName
-	 * @return
+	 * @return deserialized Object
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
@@ -198,7 +248,17 @@ public class Runoff implements java.io.Serializable{
 		}
 		return obj;
 	}
-
+	/**
+	 * Runoff constructor 
+	 * @param row
+	 * @param length
+	 * @param front
+	 * @param strength
+	 * @param health
+	 * @param ticksSinceMoved
+	 * @param images
+	 * @param hasDied
+	 */
 	public Runoff(int row, int length, int front, int strength, ArrayList<Integer> health, int ticksSinceMoved,
 			ArrayList<Image> images, boolean hasDied) {
 		super();

@@ -224,11 +224,19 @@ public class Animal implements java.io.Serializable {
 
 	
 	//GETTERS & SETTERS
+	/**
+	 * Get x Location
+	 * @return x Location as an int
+	 */
 	public int getXloc() {
 		return xloc;
 	}
 
 	@Override
+	/**
+	 * Overridden toString method 
+	 * Animal SubclassOfAnimal [location=(x, y), scoreEffect, timeLeftonScreen, visibility]
+	 */
 	public String toString() {
 		return "Animal " + typeOfAnimal + " [location=(" + xloc + ", " + yloc + ")" + ", scoreEffect=" + scoreEffect
 				+ ", timeLeft=" + timeLeftOnScreen + ", visible="
@@ -248,55 +256,94 @@ public class Animal implements java.io.Serializable {
 			setXdir(-1);
 		}
 	}
-	
+	/**
+	 * Set x Location
+	 * @param xlocation as an int
+	 */
 	public void setXloc(int xloc) {
 		this.xloc = xloc;
 	}
-
+	/**
+	 * Get y Location
+	 * @return ylocation as an int
+	 */
 	public int getYloc() {
 		return yloc;
 	}
-
+	/**
+	 * Set Y Location
+	 * @param ylocation as an int
+	 */
 	public void setYloc(int yloc) {
 		this.yloc = yloc;
 	}
-
+	/**
+	 * Get Type of Animal
+	 * @return subclass of animal as a string ie Crab
+	 */
 	public String getTypeOfAnimal() {
 		return typeOfAnimal;
 	}
-
+	/**
+	 * Set the type of animal
+	 * @param typeOfAnimal as a String
+	 */
 	public void setTypeOfAnimal(String typeOfAnimal) {
 		this.typeOfAnimal = typeOfAnimal;
 	}
-
+	/**
+	 * Get the Score 
+	 * @return scoreEffet as an int
+	 */
 	public int getScoreEffect() {
 		return scoreEffect;
 	}
-
+	/**
+	 * Set the Score Effect
+	 * @param scoreEffect as an int
+	 */
 	public void setScoreEffect(int scoreEffect) {
 		this.scoreEffect = scoreEffect;
 	}
-
+	/**
+	 * Get the Display Duration, the amount of time the animal will remain on screen
+	 * @return displayDuration as a double
+	 */
 	public double getDisplayDuration() {
 		return displayDuration;
 	}
-
+	/**
+	 * Set the displayDuration, the amount of time an animal stays on screen
+	 * @param displayDuration as a double
+	 */
 	public void setDisplayDuration(double displayDuration) {
 		this.displayDuration = displayDuration;
 	}
-
+	/**
+	 * Get the time left on Screen
+	 * @return timeLeftOnScreen as a double
+	 */
 	public double getTimeLeftOnScreen() {
 		return timeLeftOnScreen;
 	}
-
+	/**
+	 * Set the time left on Screen
+	 * @param timeLeftOnScreen as a double
+	 */
 	public void setTimeLeftOnScreen(double timeLeftOnScreen) {
 		this.timeLeftOnScreen = timeLeftOnScreen;
 	}
-
+	/**
+	 * Get Visibility
+	 * @return visible boolean
+	 */
 	public boolean isVisible() {
 		return visible;
 	}
-
+	/**
+	 * Set Visibility
+	 * @param visible boolean
+ 	 */
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
@@ -317,63 +364,108 @@ public class Animal implements java.io.Serializable {
 		this.imageHeight = this.images[0].getHeight(null);
 		this.imageWidth = this.images[0].getWidth(null);
 	}
-
+	/**
+	 * Get the imageWidth
+	 * @return mageWidth as an int
+	 */
 	public int getImageWidth() {
 		return imageWidth;
 	}
-
+	/**
+	 * Set the image Width
+	 * @param imageWidth as an int
+	 */
 	public void setImageWidth(int imageWidth) {
 		this.imageWidth = imageWidth;
 	}
-
+	/**
+	 * Get the image Height
+	 * @return imageHeight as an int
+	 */
 	public int getImageHeight() {
 		return imageHeight;
 	}
-
+	/**
+	 * Set the image height
+	 * @param imageHeight as an int
+	 */
 	public void setImageHeight(int imageHeight) {
 		this.imageHeight = imageHeight;
 	}
-
+	/**
+	 * Return whether the animal is caught
+	 * @return caught boolean
+	 */
 	public boolean isCaught() {
 		return caught;
 	}
-
+	/**
+	 * Set the caught status true/false
+	 * @param caught boolean
+	 */
 	public void setCaught(boolean caught) {
 		this.caught = caught;
 	}
-
+	/**
+	 * Return whether the animal is off screen
+	 * @return offScreen boolean
+	 */
 	public boolean isOffScreen() {
 		return offScreen;
 	}
-
+	/**
+	 * Set the offScreen status true/false
+	 * @param offScreen boolean
+	 */
 	public void setOffScreen(boolean offScreen) {
 		this.offScreen = offScreen;
 	}
-
+	/**
+	 * Get the x direction
+	 * @return xdirection as an int
+	 */
 	public int getXdir() {
 		return xdir;
 	}
-
+	/**
+	 * Set the x direction
+	 * @param xdirection as an int
+	 */
 	public void setXdir(int xdir) {
 		this.xdir = xdir;
 	}
-
+	/**
+	 * Get the Step
+	 * @return step as an int
+	 */
 	public int getStep() {
 		return step;
 	}
-
+	/**
+	 * Set the Step
+	 * @param step as an int
+	 */
 	public void setStep(int step) {
 		this.step = step;
 	}
-
+	/**
+	 * Get the Picture Number
+	 * @return picNum as an int
+	 */
 	public int getPicNum() {
 		return picNum;
 	}
-
+	/**
+	 * Set the picture number
+	 * @param picNum as an int
+	 */
 	public void setPicNum(int picNum) {
 		this.picNum = picNum;
 	}
-
+	/**
+	 * Get the array of animation images
+	 * @return images an array of Images
+	 */
 	public Image[] getImages() {
 		return images;
 	}

@@ -51,23 +51,29 @@ public class Crab extends MovingObject {
 		}
 	}
 	/**
-	 * Getter and Setter for mode
+	 * Getter for int mode
+	 * @return mode 
 	 */
 	public int getMode() {
 		return mode;
 	}
+	/**
+	 * 
+	 * @param mode an int
+	 */
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
 	/**
-	 * Getter and Setter for speed
+	 * Setter for speed
+	 * @param speed int
 	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 	int n=2;
 	/**
-	 * @param i indicate clicked the jump button
+	 * @param i indicate click of the jump button
 	 * set the jumping state;
 	 */
 	public void clicked(int i){
@@ -75,6 +81,9 @@ public class Crab extends MovingObject {
 	}
 	/* (non-Javadoc)
 	 * @see Game1.MovingObject#update()
+	 */
+	/**
+	 * Update the image, position, and speed of the crab based on the tick counter
 	 */
 	public void update(){
 		if(tick > 5){
@@ -93,9 +102,7 @@ public class Crab extends MovingObject {
 			speed=0;
 			currheight=0;
 
-		}
-		
-		
+		}	
 		
 		this.getLabel().setBounds(this.getPosition().x, this.getPosition().y+(int)currheight, 
 				this.getLabel().getWidth(), this.getLabel().getHeight());

@@ -343,7 +343,7 @@ public class Game3 implements Serializable{
 	}
 	/**
 	 * Regenerates the Menu for buying plants once a new click has been made
-	 * wUsed to handle errors received previously involving planting
+	 * Used to handle errors received previously involving planting
 	 * plants in every clicked location 
 	 */
 	public  void menuRegen() {
@@ -654,7 +654,14 @@ public class Game3 implements Serializable{
 	/**
 	 * Getters And Setters and toString
 	 */
-
+	/**
+	 * Overridden toStirng
+	 * Game3 [ Time: t, Score: x, Money: $$
+	 * plants.toString()
+	 * enemies.toString()
+	 * mussels.toString()
+	 * GameOver: t/f, BigGame: bg, Timer timer]
+	 */
 
 	public String toString(){
 		return "Game3 [ Time: "+time+", Score: "+score+", Money: "+money+"\n"+plants.toString()+"\n"
@@ -662,219 +669,378 @@ public class Game3 implements Serializable{
 				+", Timer"+timer+"]";
 	}
 
-
+	/**
+	 * Get the time as a double
+	 * @return time
+	 */
 	public double getTime() {
 		return time;
 	}
-
+	/**
+	 * Set the time as a double
+	 * @param time
+	 */
 	public void setTime(double time) {
 		this.time = time;
 	}
-
+	/**
+	 * Get the Score as an int
+	 * @return score
+	 */
 	public int getScore() {
 		return score;
 	}
-
+	/**
+	 * Set the Score as an int
+	 * @param score
+	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
-
+	/**
+	 * Get the money balance as an int
+	 * @return money
+	 */
 	public int getMoney() {
 		return money;
 	}
-
+	/**
+	 * Set the money balance
+	 * @param money
+	 */
 	public void setMoney(int money) {
 		this.money = money;
 	}
-
+	/**
+	 * Get the tick count as an int
+	 * @return tickCount
+	 */
 	public int getTickCount() {
 		return tickCount;
 	}
-
+	/**
+	 * Set the TickCount as an int
+	 * @param tickCount
+	 */
 	public void setTickCount(int tickCount) {
 		this.tickCount = tickCount;
 	}
-
+	/**
+	 * Get the plants ArrayList of plants
+	 * @return plants
+	 */
 	public ArrayList<Plant> getPlants() {
 		return plants;
 	}
-
+	/**
+	 * Set the ArrayList of Plants
+	 * @param plants
+	 */
 	public void setPlants(ArrayList<Plant> plants) {
 		this.plants = plants;
 	}
-
+	/**
+	 * Get the ArrayList of Runoff, enemies
+	 * @return enemies
+	 */
 	public ArrayList<Runoff> getEnemies() {
 		return enemies;
 	}
-
+	/**
+	 * Set the ArrayList of Runoff, enemies
+	 * @param enemies
+	 */
 	public void setEnemies(ArrayList<Runoff> enemies) {
 		this.enemies = enemies;
 	}
-
+	/**
+	 * Get the ArrayList of Mussels
+	 * @return mussels
+	 */
 	public ArrayList<Mussel> getMussels() {
 		return mussels;
 	}
-
+	/**
+	 * Set the ArrayList of Mussels
+	 * @param mussels
+	 */
 	public void setMussels(ArrayList<Mussel> mussels) {
 		this.mussels = mussels;
 	}
-
+	/** 
+	 * Get the ArrayList of Tiles
+	 * @return tiles
+	 */
 	public ArrayList<Tile> getTiles() {
 		return tiles;
 	}
-
+	/**
+	 * Set the ArrayList of tiles
+	 * @param tiles
+	 */
 	public void setTiles(ArrayList<Tile> tiles) {
 		this.tiles = tiles;
 	}
-
+	/**
+	 * Return whether the Game is still running true/false
+	 * @return gameRunning boolean
+	 */
 	public boolean isGameRunning() {
 		return gameRunning;
 	}
-
+	/**
+	 * Set the gameRunning status
+	 * @param gameRunning
+	 */
 	public void setGameRunning(boolean gameRunning) {
 		this.gameRunning = gameRunning;
 	}
-
+	/**
+	 * Return whether the game is over true/false
+	 * @return gameOver boolean
+	 */
 	public boolean isGameOver() {
 		return gameOver;
 	}
-
+	/**
+	 * Set the gameOver status true/false
+	 * @param gameOver boolean
+	 */
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
 	}
-
+	/**
+	 * Get the OverallGame
+	 * @return bigGame
+	 */
 	public OverallGame getBigGame() {
 		return bigGame;
 	}
-
+	/**
+	 * Set the OverallGame
+	 * @param bigGame
+	 */
 	public void setBigGame(OverallGame bigGame) {
 		this.bigGame = bigGame;
 	}
-
+	/**
+	 * Get the JPanel
+	 * @return gamePanel
+	 */
 	public JPanel getGamePanel() {
 		return gamePanel;
 	}
-
+	/**
+	 * Set the JPanel
+	 * @param gamePanel
+	 */
 	public void setGamePanel(JPanel gamePanel) {
 		this.gamePanel = gamePanel;
 	}
-
+	/**
+	 * Get the BigGameJPanel
+	 * @return bigGamePanel
+	 */
 	public JPanel getBigGamePanel() {
 		return bigGamePanel;
 	}
-
+	/**
+	 * Set the BigGameJPanel
+	 * @param bigGamePanel
+	 */
 	public void setBigGamePanel(JPanel bigGamePanel) {
 		this.bigGamePanel = bigGamePanel;
 	}
-
+	/**
+	 * Get the JFrame
+	 * @return gameFrame
+	 */
 	public JFrame getGameFrame() {
 		return gameFrame;
 	}
-
+	/**
+	 * Set the JFrame
+	 * @param gameFrame
+	 */
 	public void setGameFrame(JFrame gameFrame) {
 		this.gameFrame = gameFrame;
 	}
-
+	/**
+	 * Get the JLabel of Time and Score
+	 * @return timeAndScore
+	 */
 	public JLabel getTimeAndScore() {
 		return timeAndScore;
 	}
-
+	/**
+	 * Set the JLabel of Time and Score
+	 * @param timeAndScore
+	 */
 	public void setTimeAndScore(JLabel timeAndScore) {
 		this.timeAndScore = timeAndScore;
 	}
-
+	/**
+	 * Get the Start Time as a long
+	 * @return startTime
+	 */
 	public long getStartTime() {
 		return startTime;
 	}
-
+	/**
+	 * Set the Start Time as a long
+	 * @param startTime
+	 */
 	public void setStartTime(long startTime) {
 		this.startTime = startTime;
 	}
-
+	/**
+	 * Get the Timer object
+	 * @return timer
+	 */
 	public Timer getTimer() {
 		return timer;
 	}
-
+	/**
+	 * Set the Timer object
+	 * @param timer
+	 */
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
-
+	/**
+	 * Get the Background Image
+	 * @return background
+	 */
 	public static Image getBackground() {
 		return background;
 	}
-
+	/**
+	 * Set the Background Image
+	 * @param background
+	 */
 	public static void setBackground(Image background) {
 		Game3.background = background;
 	}
-
+	/**
+	 * Get the JPopupMenu
+	 * @return menu
+	 */
 	public JPopupMenu getMenu() {
 		return menu;
 	}
-
+	/**
+	 * Set the JPopupMenu
+	 * @param menu
+	 */
 	public void setMenu(JPopupMenu menu) {
 		this.menu = menu;
 	}
-
+	/**
+	 * Get the JProgressBar, a time bar
+	 * @return timeBar
+	 */
 	public JProgressBar getTimeBar() {
 		return timeBar;
 	}
-
+	/**
+	 * Set the JProgressBar
+	 * @param timeBar
+	 */
 	public void setTimeBar(JProgressBar timeBar) {
 		this.timeBar = timeBar;
 	}
-
+	/**
+	 * Get the ArrayList of JLabels: Coins
+	 * @return coins
+	 */
 	public ArrayList<JLabel> getCoins() {
 		return coins;
 	}
-
+	/**
+	 * Set the ArrayList of JLabel: Coins
+	 * @param coins
+	 */
 	public void setCoins(ArrayList<JLabel> coins) {
 		this.coins = coins;
 	}
-
+	/**
+	 * Get the JLabel of Total Coins
+	 * @return totalCoin
+	 */
 	public JLabel getTotalCoin() {
 		return totalCoin;
 	}
-
+	/**
+	 * Set the TotalCoin JLabel
+	 * @param totalCoin
+	 */
 	public void setTotalCoin(JLabel totalCoin) {
 		this.totalCoin = totalCoin;
 	}
 
-
+	/**
+	 * Get the JLabel Pipes
+	 * @return pipes
+	 */
 	public JLabel getPipes() {
 		return pipes;
 	}
-
+	/**
+	 * Set the JLabel pipes
+	 * @param pipes
+	 */
 	public void setPipes(JLabel pipes) {
 		this.pipes = pipes;
 	}
 
-
+	/**
+	 * Get the JMenuItem grass
+	 * @return grass
+	 */
 	public JMenuItem getGrass() {
 		return grass;
 	}
-
+	/**
+	 * Get the JMunuItem Mangrove
+	 * @return mangrove
+	 */
 	public JMenuItem getMangrove() {
 		return mangrove;
 	}
 
-
+	/**
+	 * Get the GrassListener AcitonListener
+	 * @return grassListen
+	 */
 	public ActionListener getGrassListen() {
 		return grassListen;
 	}
-
+	/**
+	 * Set the GrassListener ActionListener
+	 * @param grassListen
+	 */
 	public void setGrassListen(ActionListener grassListen) {
 		this.grassListen = grassListen;
 	}
-
+	/**
+	 * Get the Mangrove ActionListener
+	 * @return
+	 */
 	public ActionListener getMangroveListen() {
 		return mangroveListen;
 	}
-
+	/**
+	 * Set the Mangrove ActionListener
+	 * @param mangroveListen
+	 */
 	public void setMangroveListen(ActionListener mangroveListen) {
 		this.mangroveListen = mangroveListen;
 	}
 
-
+	/**
+	 * Get the SerialVersionUID
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

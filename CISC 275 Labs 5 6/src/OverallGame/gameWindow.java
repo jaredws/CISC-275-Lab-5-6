@@ -77,6 +77,7 @@ public class gameWindow implements Serializable{
 */
 	/**
 	 * Create the application.
+	 * @param bigGame the OverallGame
 	 */
 	public gameWindow(OverallGame bigGame) {
 		this.bigGame = bigGame;
@@ -405,63 +406,108 @@ public class gameWindow implements Serializable{
 		}
 		return obj;
 	}
-
+	/**
+	 * Get the OverallGame
+	 * @return bigGame
+	 */
 	public OverallGame getBigGame() {
 		return bigGame;
 	}
-
+	/**
+	 * Set the OverallGame
+	 * @param bigGame
+	 */
 	public void setBigGame(OverallGame bigGame) {
 		this.bigGame = bigGame;
 	}
-
+	/**
+	 * Get the JFrame
+	 * @return frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
-
+	/**
+	 * Set the JFrame
+	 * @param frame
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	/**
+	 * Get the Game1Button Image
+	 * @return
+	 */
 	public Image getGame1Button() {
 		return game1Button;
 	}
-
+	/**
+	 * Set the Game1Button Image
+	 * @param game1Button
+	 */
 	public void setGame1Button(Image game1Button) {
 		this.game1Button = game1Button;
 	}
-
+	/**
+	 * Get the Game2Button Image
+	 * @return game2Button
+	 */
 	public Image getGame2Button() {
 		return game2Button;
 	}
-
+	/**
+	 * Set the Game2Button Image
+	 * @param game2Button
+	 */
 	public void setGame2Button(Image game2Button) {
 		this.game2Button = game2Button;
 	}
-
+	/**
+	 * Get the Game3Button Image
+	 * @return game3Button
+	 */
 	public Image getGame3Button() {
 		return game3Button;
 	}
-
+	/**
+	 * Set the Game3Button Image
+	 * @param game3Button
+	 */
 	public void setGame3Button(Image game3Button) {
 		this.game3Button = game3Button;
 	}
-
+	/**
+	 * Get the current Score int
+	 * @return currentScore
+	 */
 	public JLabel getCurrentScore() {
 		return currentScore;
 	}
-
+	/**
+	 * Set the CurrentScore JLabel
+	 * @param currentScore
+	 */
 	public void setCurrentScore(JLabel currentScore) {
 		this.currentScore = currentScore;
 	}
-
+	/**
+	 * Get the SerialVersionUID
+	 * @return serialVersionUID
+	 */
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+	/**
+	 * Get the ViewHighScores JButton
+	 * @return viewHighScores
+	 */
 	public JButton getViewHighScores() {
 		return viewHighScores;
 	}
-
+	/**
+	 * Set the ViewHighScores JButton
+	 * @param viewHighScores
+	 */
 	public void setViewHighScores(JButton viewHighScores) {
 		this.viewHighScores = viewHighScores;
 	}

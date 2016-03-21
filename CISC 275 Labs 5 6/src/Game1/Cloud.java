@@ -17,11 +17,15 @@ import javax.swing.JPanel;
  * Subclass of MovingObect, Cloud in the game
  */
 public class Cloud extends MovingObject {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 101L;
 	int speed,bx,by;
+	
+	/**
+	 * @param size size of the cloud
+	 * @param bx starting x coordinate
+	 * @param by starting y coordinate
+	 */
 	public Cloud(int size, int bx,int by) {
 		super((int)(bx*Math.random()),(int)(by*Math.random()), size);
 		this.bx=bx;
@@ -31,6 +35,11 @@ public class Cloud extends MovingObject {
 	}
 	/* (non-Javadoc)
 	 * @see Game1.MovingObject#update()
+	 */
+	
+	/**
+	 * Update the location based on the speed and size of a cloud.
+	 * 
 	 */
 	public void update(){
 		if(this.speed+this.getPosition().x<-this.getSize()/2){
