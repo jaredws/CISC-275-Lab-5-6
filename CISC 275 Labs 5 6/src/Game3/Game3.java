@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -39,7 +40,7 @@ import OverallGame.OverallGame;
  * The Game Handler for the final game
  * This will handle all logic, Input and Graphics for the final game
  */
-public class Game3 implements java.io.Serializable{
+public class Game3 implements Serializable{
 	private static final long serialVersionUID = 300L;
 	public  static final int scalor = (OverallGame.frameHeight < OverallGame.frameWidth) ? OverallGame.frameHeight/8 : OverallGame.frameWidth/8;
 	public 	static final int xOffset= (OverallGame.frameWidth/3);
@@ -72,6 +73,7 @@ public class Game3 implements java.io.Serializable{
 	private JMenuItem mangrove;
 	private ActionListener grassListen;
 	private ActionListener mangroveListen;
+	int xTest; //Used For Testing Purposes
 	
 	
 	
@@ -263,11 +265,11 @@ public class Game3 implements java.io.Serializable{
 	 * @param e - The location and nature of the user's click
 	 */
 	public void onClick(MouseEvent e) {
-		System.out.println("yooooo");
 		if (timer.isRunning() == false) {
 			timer.start();
 		}
 		int xLoc = e.getX();
+		xTest = xLoc;
 		int yLoc = e.getY();
 		Mussel removal = null;
 		if (xLoc < xOffset) {
@@ -572,7 +574,7 @@ public class Game3 implements java.io.Serializable{
 	 * @param y
 	 * @param x
 	 */
-	public void onClickForTesting(int y, int x) {
+	/*public void onClickForTesting(int y, int x) {
 		if (timer.isRunning() == false) {
 			timer.start();
 		}
@@ -647,7 +649,7 @@ public class Game3 implements java.io.Serializable{
 		}
 		mangrove.addActionListener(mangroveListen);
 		
-	}
+	}*/
 	
 	/**
 	 * Getters And Setters and toString

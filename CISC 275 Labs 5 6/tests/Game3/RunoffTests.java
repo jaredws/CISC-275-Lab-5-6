@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game2.CrabCatcherGame;
@@ -14,18 +16,18 @@ import OverallGame.gameWindow;
 
 public class RunoffTests {
 	
-	OverallGame testGame;
-	Game3 testGame3;
-	Runoff r;
-	Runoff r2;
-	Runoff r3;
-	ArrayList<Integer> a;
+	static OverallGame o;
+	static Game3 g;
+	static Runoff r;
+	static Runoff r2;
+	static Runoff r3;
+	static ArrayList<Integer> a;
 	
-	@Before
-	public void setUp() {
-		testGame = new OverallGame();
-		testGame.setGameWindow(new	gameWindow(testGame));
-		testGame3 = new Game3(testGame);
+	@BeforeClass
+	public static void setUpBeforeClass() {
+		o = new OverallGame();
+		o.setGameWindow(new	gameWindow(o));
+		g = new Game3(o);
 		r = new Runoff(1,1000);
 		r2 = new Runoff(1, 4, 21, 63, null, 10, null, false);
 		r3 = new Runoff(1,1000);
@@ -33,10 +35,10 @@ public class RunoffTests {
 		a.add(2);a.add(7);
 	}
 	
-	@After
-	public void tearDown() {
-		testGame = null;
-		testGame3 = null;
+	@AfterClass
+	public static void tearDownAfterClass() {
+		o = null;
+		g = null;
 		r = null;
 		r2 = null;
 	}
@@ -47,7 +49,13 @@ public class RunoffTests {
 	 */
 	@Test
 	public void testGrowAndRemoveFront() {
-		testGame3.getTimer().stop();
+		o = new OverallGame();
+		o.setGameWindow(new	gameWindow(o));
+		g = new Game3(o);
+		r = new Runoff(1,1000);
+		r2 = new Runoff(1, 4, 21, 63, null, 10, null, false);
+		r3 = new Runoff(1,1000);
+		g.getTimer().stop();
 		assertEquals(1,r.getLength());
 		r.grow();
 		assertEquals(2,r.getLength());
@@ -82,6 +90,12 @@ public class RunoffTests {
 	
 	@Test
 	public void equalsTest() {
+		o = new OverallGame();
+		o.setGameWindow(new	gameWindow(o));
+		g = new Game3(o);
+		r = new Runoff(1,1000);
+		r2 = new Runoff(1, 4, 21, 63, null, 10, null, false);
+		r3 = new Runoff(1,1000);
 		assertFalse("r != r2",r.equals(r2));
 		assertTrue("r == r3",r.equals(r3));
 	}

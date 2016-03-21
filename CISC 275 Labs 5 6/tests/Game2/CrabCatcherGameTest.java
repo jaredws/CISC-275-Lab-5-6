@@ -2,8 +2,12 @@ package Game2;
 import static org.junit.Assert.*;
 
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,9 +16,13 @@ import java.util.Iterator;
 import javax.swing.Timer;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game1.RipRapGame;
@@ -29,24 +37,32 @@ import OverallGame.gameWindow;
  */
 public class CrabCatcherGameTest {	
 	
-	JFrame frame = new JFrame();
-	OverallGame bigGame = makeTestBigGame();
-	CrabCatcherGame c;
+	static JFrame frame;
+	static OverallGame bigGame;
+	static CrabCatcherGame c;
+	static MouseAdapter m;
 	
-	@Before
-	public void setUp() {
-		c = new CrabCatcherGame(0, null, 0, 0, 0, null, 0, false, bigGame, frame);
+	@BeforeClass
+	public static void setUpBeforeClass() {
+		ArrayList<Animal> aa = new ArrayList<Animal>();
+		
+		frame = new JFrame();
+		frame.add(new JLabel("test"));
+		bigGame = makeTestBigGame();
+		c = new CrabCatcherGame(10, aa, 10, 10, 10, m, 100, false, bigGame, frame);
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public static void tearDownAfterClass() {
 		c = null;
+		frame = null;
+		bigGame = null;
 	}
 	
 	/**makes an overall game for testing
 	 * @return
 	 */
-	public OverallGame makeTestBigGame(){
+	public static OverallGame makeTestBigGame(){
 		OverallGame bigGame = new OverallGame();
 		frame.setBounds(100, 100, bigGame.frameWidth, bigGame.frameHeight);
 		//frame.setVisible(false);
@@ -356,6 +372,82 @@ public class CrabCatcherGameTest {
 		c.setMaxAnimalsOnScreen(2);
 		assertEquals("Max Animals should be 2",(int)c.getMaxAnimalsOnScreen(),2);
 	}
-		
+	
+	@Test
+	public void setBigGameTest() {
+		OverallGame o2 = new OverallGame();
+		o2.setOverallScore(300);
+		c.setBigGame(o2);
+		assertEquals("OverallScore should be 300",c.getBigGame().getOverallScore(),300);
+	}
+	
+	@Test
+	public void setFrameTest() {
+		JFrame jf = new JFrame();
+		jf.setTitle("test");
+		c.setFrame(jf);
+		assertTrue("Frame should have the title 'test'",c.getFrame().getTitle().equals("test"));
+	}
+	
+	@Test
+	public void setPanelTest() {
+		JPanel jp = new JPanel();
+		jp.setToolTipText("test");
+		c.setPanel(jp);
+		assertTrue("Panel should contain the ToolTipText 'test'",c.getPanel().getToolTipText().equals("test"));
+	}
+	
+	@Test
+	public void setResultAnimsTest() {
+		ArrayList<ResultAnimation> ra = new ArrayList<ResultAnimation>();
+		ra.add(new ResultAnimation(20, false, 10, 15));ra.add(new ResultAnimation(12, true, 15, 20));
+		c.setResultAnims(ra);
+		assertEquals("Size of second index of ResultAnimation ArrayList should be 12",c.getResultAnims().get(1).getSize(),12);
+	}
+	
+	@Test
+	public void onClickHitTest() {
+		JFrame jf = new JFrame();jf.add(new JLabel("test"));
+		MouseEvent e = new MouseEvent(jf, 11, 250, 2, 15, 25, 3, true);
+		Animal a = new Animal(15, 25, "Dog", 10, 10, true);
+		c.addAnimal(a);
+		c.initPanel();
+		PrintStream originalOut = System.out;
+		OutputStream os = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(os);
+	    System.setOut(ps);
+		c.onClick(e);
+		assertTrue("Output contains '!!!you clicked on a Dog'",os.toString().contains("!!!you clicked on a Dog"));
+		System.setOut(originalOut);
+	}
+	
+	@Test
+	public void onClickMissTest() {
+		JFrame jf = new JFrame();jf.add(new JLabel("test"));
+		MouseEvent e = new MouseEvent(jf, 11, 250, 2, 16, 25, 3, true);
+		c.initPanel();
+		PrintStream originalOut = System.out;
+		OutputStream os = new ByteArrayOutputStream();
+		PrintStream ps = new PrintStream(os);
+	    System.setOut(ps);
+		c.onClick(e);
+		assertTrue("Output contains 'you missed!'",os.toString().contains("you missed!"));
+		System.setOut(originalOut);
+	}
+	
+	@Test
+	public void endGameTest() {
+		OverallGame o = new OverallGame();
+		gameWindow g = new gameWindow(o);
+		o.setGameWindow(g);
+		o.setOverallScore(1000);
+		c.setBigGame(o);
+		c.setScore(600);
+		JFrame jf = new JFrame();jf.add(new JLabel("test"));
+		c.setFrame(jf);
+		c.startGame();
+		c.endGame();
+		assertEquals("OverallGame has an OverallScore of 1600",c.getBigGame().getOverallScore(),1600);
+	}
 
 }

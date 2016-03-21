@@ -54,8 +54,7 @@ public class OverallGameTest {
 	public void initializeHighscoresTest() {
 		o.setHighscores(o.initializeHighscores("testHighScores.txt"));
 		String	highScores1	=	o.getHighscores();
-		o.setHighscores(o.initializeHighscores("highScores.txt"));
-		String	highScores2	=	o.getHighscores();
+		String	highScores2	=	"Brendan:	42000\nDanielle:	3915\nDavid:	666\nHuayu:	350\nZhanglong:	333\n";
 		o.setHighscores(o.initializeHighscores("testHighScores2.txt"));
 		String	highScores3	=	o.getHighscores();
 		String	highScores4	=	"Brendan:	42000\nDanielle:	3915\nDavid:	666\nHuayu:	350\nZhanglong:	333\n";

@@ -5,29 +5,41 @@ import static org.junit.Assert.*;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+
+import Game1.RipRapGame;
+import Game2.Animal;
+import Game2.CrabCatcherGame;
+import OverallGame.OverallGame;
+import OverallGame.gameWindow;
 
 public class TileTest {
 
-	Tile t;
-	Tile t2;
-	
-	@Before
-	public void setUp() throws Exception {
+	static Tile t;
+	static Tile t2;
+	static OverallGame o;
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
 		t = new Tile(12,18);
 		Image img = ImageIO.read(new File("images/sand.png")).getScaledInstance(Game3.scalor, Game3.scalor, 1);
 		t2 = new Tile(10,20,img);
+		o = new OverallGame();
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
 		t = null;
 		t2 = null;
+		o = null;
 	}
 
 	@Test
@@ -44,6 +56,7 @@ public class TileTest {
 	
 	@Test
 	public void toStringTest() {
+		t = new Tile(12,18);
 		assertTrue("toString should return 'Row: 12 \nCol:  18'",t.toString().equals("Row: 12\nCol:  18"));
 	}
 	
