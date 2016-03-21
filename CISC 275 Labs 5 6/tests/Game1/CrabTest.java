@@ -2,15 +2,20 @@ package Game1;
 
 import static org.junit.Assert.*;
 
+import javax.swing.JLabel;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class CrabTest {
+	
 	static Crab c;
+	
 	@Before
 	public void setUp() throws Exception {
 		c = new Crab(1,1,1);
+		c.label = new JLabel("test");
 	}
 
 	@After
@@ -49,13 +54,23 @@ public class CrabTest {
 		//Nothing Happens
 	}
 	
-	/*@Test
-	public void updateTest3() {
-		//3rd Branch
+	@Test
+	public void updateTest() {
 		c.currheight = 3;c.setSpeed(5);
 		c.update();
-		assertTrue("Speed should be 0",c.speed==0);
-		assertTrue("currHeight should be 0",c.currheight==0);
-	}*/
+		assertEquals("Speed should be 0",(int)c.speed,0);
+		assertEquals("currHeight should be 0",(int)c.currheight,0);
+		c.currheight = -3;c.setSpeed(-5);
+		c.n = 10;
+		c.update();
+		assertEquals("Speed should be 0",(int)c.speed,0);
+		assertEquals("currHeight should be -8",(int)c.currheight,-8);
+		c.currheight = 0;c.setSpeed(0);
+		c.update();
+		c.tick = 10;
+		c.update();
+		assertEquals("tick should be 0",c.tick,0);
+		
+	}
 
 }

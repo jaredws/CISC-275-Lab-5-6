@@ -1,7 +1,5 @@
 package Game2;
 import static org.junit.Assert.*;
-
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.ByteArrayOutputStream;
@@ -9,24 +7,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
-
 import javax.swing.Timer;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import Game1.RipRapGame;
-import Game3.Game3;
 import OverallGame.OverallGame;
 import OverallGame.gameWindow;
 
@@ -406,6 +394,13 @@ public class CrabCatcherGameTest {
 	}
 	
 	@Test
+	public void setMouseListenerTest() {
+		c.setMouseListener(m);
+		System.out.println(c.getMouseListener());
+		//assertTrue("HashCode of MouseListeners should be equals",c.getMouseListener().hashCode()==m.hashCode());
+	}
+	
+	@Test
 	public void onClickHitTest() {
 		JFrame jf = new JFrame();jf.add(new JLabel("test"));
 		MouseEvent e = new MouseEvent(jf, 11, 250, 2, 15, 25, 3, true);
@@ -419,6 +414,18 @@ public class CrabCatcherGameTest {
 		c.onClick(e);
 		assertTrue("Output contains '!!!you clicked on a Dog'",os.toString().contains("!!!you clicked on a Dog"));
 		System.setOut(originalOut);
+	}
+	
+	@Test
+	public void reAddAnimalTest() {
+		Animal a = new Animal(10, 10, "fish", 10, 10, true);
+		a.setXdir(1);
+		c.reAddAnimal(a);
+		assertTrue("Animals arraylist should contain a",c.getAnimals().contains(a));
+		Animal a2 = new Animal(10, 10, "fish", 10, 10, true);
+		a.setXdir(2);
+		c.reAddAnimal(a2);
+		assertTrue("Animals arraylist should contain a2",c.getAnimals().contains(a2));
 	}
 	
 	@Test
@@ -449,5 +456,24 @@ public class CrabCatcherGameTest {
 		c.endGame();
 		assertEquals("OverallGame has an OverallScore of 1600",c.getBigGame().getOverallScore(),1600);
 	}
+	
+	@Test
+	public void updateGameTest() {
+		OverallGame o = new OverallGame();
+		gameWindow g = new gameWindow(o);
+		o.setGameWindow(g);
+		o.setOverallScore(1000);
+		c.setBigGame(o);
+		c.setScore(600);
+		JFrame jf = new JFrame();jf.add(new JLabel("test"));
+		c.setFrame(jf);
+		c.startGame();
+		c.setTime(2);c.setGameLength(1.0);
+		c.updateGame();
+		c.setTime(2);c.setGameLength(10.0);
+		c.updateGame();
+	}
+	
+	
 
 }
