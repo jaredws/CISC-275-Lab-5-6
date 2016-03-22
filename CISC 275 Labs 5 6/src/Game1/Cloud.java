@@ -1,15 +1,5 @@
 package Game1;
 
-import java.awt.Point;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 /**
  * @author Brendan, Danielle, David, Huayu and Zhanglong
  * @version 0.1

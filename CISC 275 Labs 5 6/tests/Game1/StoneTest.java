@@ -1,23 +1,21 @@
 package Game1;
 
 import static org.junit.Assert.*;
-
 import javax.swing.JLabel;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class StoneTest {
-	Stone s;
+	static Stone s;
 	
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
 		s = new Stone(1,1,1);
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDownBeforeClass() throws Exception {
 		s = null;
 	}
 
@@ -31,8 +29,10 @@ public class StoneTest {
 	
 	@Test
 	public void updateTest() {
+		s = new Stone(1,1,1);
 		s.label = new JLabel("test");
 		s.tick = 1;
+		s.orig_speed = 20;
 		s.update();
 		assertEquals("tick should be 0",s.tick,0);
 		assertEquals("Speed should equal Original Speed",s.speed,s.orig_speed);

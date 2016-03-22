@@ -1,17 +1,11 @@
 package Game1;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
-import javax.swing.JFrame;
-
-import org.junit.After;
+import javax.swing.JPanel;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import Game2.Animal;
 import Game2.CrabCatcherGame;
 import Game3.Game3;
@@ -29,7 +23,7 @@ public class RipRapGameTest {
 	static gameWindow w;
 	
 	@BeforeClass
-	public static void setUp() throws Exception {
+	public static void setUpBeforeClass() throws Exception {
 		o = new OverallGame();
 		w = new gameWindow(o);
 		o.setGameWindow(w);
@@ -40,7 +34,7 @@ public class RipRapGameTest {
 	}
 
 	@AfterClass
-	public static void tearDown() throws Exception {
+	public static void tearDownAfterClass() throws Exception {
 		o = null;
 		r = null;
 		c = null;
@@ -98,6 +92,63 @@ public class RipRapGameTest {
 		OverallGame o2 = new OverallGame(100, b, 1, "",10.2,c1,r1,g1,w);
 		r.setBigGame(o2);
 		assertTrue("Time in idle should be 10.2",r.getBigGame().getTimeInIdle()==10.2);
+	}
+	
+	@Test
+	public void initGameTest() {
+		r.panel = new JPanel();
+		r.panel.setBounds(10, 13, 45, 64);
+		r.initGame();
+		assertEquals("Objects contains a Sun with size 200",r.objects.get(r.objects.size()-1).getSize(),200);
+	}
+	
+	@Test
+	public void toStringTest() {
+		r.getBigGame().setOverallScore(250);
+		assertTrue("toString contains 'Overall Score: 250'",r.toString().contains("Overall Score: 250"));
+	}
+	
+	@Test
+	public void firstRunPanelTest() {
+		r.panel = new JPanel();
+		r.panel.setBounds(10, 13, 45, 64);
+		r.score = 25;
+		r.firstRunPanel();
+		assertTrue("TS label should have a score of 25",r.TS.getText().equals("Score:25"));
+	}
+	
+	@Test
+	public void updatePanelTest() {
+		r.panel = new JPanel();
+		r.panel.setBounds(10, 13, 45, 64);
+		r.score = 35;
+		r.updatePanel();
+		assertTrue("TS label should have a score of 35",r.TS.getText().equals("Score:35"));
+	}
+	
+	@Test
+	public void runTest() {
+		r.panel = new JPanel();
+		r.panel.setBounds(10, 13, 45, 64);
+		r.run();
+		assertTrue("The timer should be running",r.timer.isRunning());
+	}
+	
+	@Test
+	public void updateTimeTest() {
+		long sysTime = System.currentTimeMillis();
+		r.starttime = sysTime+1000;
+		r.time = 10;
+		r.updateTime();
+		assertEquals("currTime should be 11",r.currtime,11);
+	}
+	
+	@Test
+	public void endGameTest() {
+		r.bigpan = new JPanel();
+		r.bigpan.setBounds(10, 13, 45, 64);
+		r.endGame();
+		assertEquals("Games running should be 0",r.getBigGame().getGamesRunning(),0);
 	}
 
 }

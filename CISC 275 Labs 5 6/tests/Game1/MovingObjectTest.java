@@ -25,7 +25,6 @@ public class MovingObjectTest {
 	/**
 	 * Test the crab
 	 */
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testCrab(){
 		Crab c=new Crab(0, 0, 100);

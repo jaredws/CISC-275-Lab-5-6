@@ -8,9 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 public class ResultAnimation implements Serializable{
 	private static final long serialVersionUID = 202L;	

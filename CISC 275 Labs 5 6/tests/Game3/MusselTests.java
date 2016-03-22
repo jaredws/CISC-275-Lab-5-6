@@ -1,13 +1,12 @@
 package Game3;
 import static org.junit.Assert.*;
-
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,17 +14,18 @@ import org.junit.Test;
 
 public class MusselTests {
 	
-	Mussel m;
-	Mussel m2;
+	static Mussel m;
+	static Mussel m2;
 	static Image img;
 	
 	@BeforeClass
-	public static void setUpBeforeClass() {
-		try {
-			img = ImageIO.read(new File("images/mussel.pnp"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public static void setUpBeforeClass() throws IOException {
+		img = ImageIO.read(new File("images/mussel.png"));
+	}
+	
+	@AfterClass
+	public static void tearDownAfterClass() {
+		img = null;
 	}
 	@Before
 	public void setUp() {
@@ -37,6 +37,7 @@ public class MusselTests {
 	@After
 	public void tearDown() {
 		m = null;
+		m2 = null;
 	}
 	/**
 	 * Mussels should grow until they reach the final stage (set at 100)
@@ -57,11 +58,6 @@ public class MusselTests {
 		assertEquals(m.getStage(), 100) ;
 	}
 	
-	public void testDraw() {
-		System.out.println(m.getMusselDrawing());
-		assertEquals(m.getMusselDrawing(), null);
-	}
-	
 	@Test
 	public void setXLocTest() {
 		m.setXLoc(15);
@@ -78,5 +74,4 @@ public class MusselTests {
 	public void toStringTest() {
 		assertTrue("Mussels [ Xloc: 10, Yloc: 15, Stage: 0]",m.toString().equals("Mussels [ Xloc: 10, Yloc: 15, Stage: 0]"));
 	}
-
 }

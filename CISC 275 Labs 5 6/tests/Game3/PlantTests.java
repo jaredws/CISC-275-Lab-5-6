@@ -1,9 +1,8 @@
 package Game3;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PlantTests {
@@ -12,22 +11,23 @@ public class PlantTests {
 	 * and those errors are caught with Exceptions, this class doesn't need to be
 	 * tested. All other methods are trivial
 	 */
-	//I'm testing trivial ones to hit 85%
 	
-	Plant p;
-	Plant p2;
-	Plant p3;
+	static Plant p;
+	static Plant p2;
+	static Plant p3;
 	
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUpBeforeClass() {
 		p = new Plant(1, 1, "test");
 		p2 = new Plant(3, 4, 6, 7, 8, 20, "Weak", null);
 		p3 = new Plant(1,1,"test");
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public static void tearDownAfterClass() {
 		p = null;
+		p2 = null;
+		p3 = null;
 	}
 	
 	@Test
@@ -72,6 +72,7 @@ public class PlantTests {
 	
 	@Test
 	public void equalsTest() {
+		p = new Plant(1, 1, "test");
 		assertFalse("p != p2",p.equals(p2));
 		assertTrue("p == p3",p.equals(p3));
 	}

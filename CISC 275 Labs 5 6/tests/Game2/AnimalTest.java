@@ -3,22 +3,39 @@ package Game2;
 import static org.junit.Assert.*;
 
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import OverallGame.OverallGame;
 
 public class AnimalTest {
 	
 	static Animal crab;
 	static Animal fish;
+	static JFrame frame;
+	static OverallGame bigGame;
+	static CrabCatcherGame c;
+	static MouseAdapter m;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
 		crab = new Animal(10, 15, "crab", -5,10, true);
 		fish = new Animal(20, 15, "fish", -3, 10, true);
+		ArrayList<Animal> aa = new ArrayList<Animal>();
+		frame = new JFrame();
+		frame.add(new JLabel("test"));
+		bigGame = new OverallGame();
+		c = new CrabCatcherGame(10, aa, 10, 10, 10, m, 100, false, bigGame, frame);
 	}
 	
 	@AfterClass
@@ -143,6 +160,7 @@ public class AnimalTest {
 		images[1] = image2;		
 	
 		crab.setImages(images);
+		crab.getImages();
 		
 		//Test Set Images
 		assertTrue("setImages() should set height", crab.getImageHeight() == 200);
@@ -253,6 +271,13 @@ public class AnimalTest {
 	@Test
 	public void toStringTest() {
 		assertTrue("toString should contain 'Animal crab'",crab.toString().contains("scoreEffect=-5"));
+		
+	}
+	
+	@Test
+	public void onTickTest() {
+		crab.onTick(c);
+		assertFalse("offScreen should be false",crab.offScreenTest);
 	}
 
 

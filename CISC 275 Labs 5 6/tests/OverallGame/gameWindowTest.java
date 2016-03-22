@@ -1,20 +1,16 @@
 package OverallGame;
 
 import static org.junit.Assert.*;
-
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
 import Game1.RipRapGame;
 import Game2.Animal;
 import Game2.CrabCatcherGame;
@@ -22,15 +18,15 @@ import Game3.Game3;
 
 public class gameWindowTest {
 
-	OverallGame o;
-	gameWindow g;
+	static OverallGame o;
+	static gameWindow g;
 	boolean[] b = {true,false};
-	Image img1;
-	Image img2;
-	Image img3;
+	static Image img1;
+	static Image img2;
+	static Image img3;
 	
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
 		o = new OverallGame();
 		g = new gameWindow(o);
 		o.setGameWindow(g);
@@ -39,8 +35,8 @@ public class gameWindowTest {
 		img3 = ImageIO.read(new File("images/Game3Button.png")).getScaledInstance(Game3.scalor, Game3.scalor, 1);
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
 		o = null;
 		g = null;
 	}
@@ -91,6 +87,16 @@ public class gameWindowTest {
 		JButton j = new JButton("Test: 1500");
 		g.setViewHighScores(j);
 		assertTrue("ViewHighScores should have a value 'Test: 1500'",g.getViewHighScores().getText().equals("Test: 1500"));
+	}
+	
+	@Test
+	public void setFrameTest() {
+		JFrame jf = new JFrame();
+		jf.add(new JLabel("test"));
+		jf.setBounds(3, 4, 32, 21);
+		g.setFrame(jf);
+		assertEquals("X position of frame is 3",g.getFrame().getX(),3);
+		
 	}
 	
 }

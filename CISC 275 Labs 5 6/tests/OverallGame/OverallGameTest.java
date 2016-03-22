@@ -1,6 +1,6 @@
 package OverallGame;
-import static org.junit.Assert.*;
 
+import static org.junit.Assert.*;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,13 +9,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-
-import javax.swing.JFrame;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-
 import Game1.RipRapGame;
 import Game2.Animal;
 import Game2.CrabCatcherGame;
@@ -30,21 +26,26 @@ import Game3.Game3;
  */
 public class OverallGameTest {
 	
-	OverallGame o;
+	static OverallGame o;
 	boolean[] b = {true,false};
+	static gameWindow g;
 	
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUpBeforeClass() {
 		o = new OverallGame();
+		g = new gameWindow(o);
+		o.setGameWindow(g);
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public static void tearDownAfterClass() {
 		o = null;
+		g = null;
 	}
 	
 	@Test
 	public void SerializationTest() throws IOException {
+		o = new OverallGame();
 		OverallGame.serialize(o, "testOutput.ser");
 		OverallGame loadedGame = (OverallGame)OverallGame.deserialize("testOutput.ser");
 		assertEquals(loadedGame.toString(), o.toString());
@@ -112,8 +113,6 @@ public class OverallGameTest {
 	
 	@Test
 	public void setGame1() {
-		gameWindow g = new gameWindow(o);
-		o.setGameWindow(g);
 		RipRapGame r = new RipRapGame(10, o, g.getFrame());
 		o.setGame1(r);
 		assertTrue("True if getGame1 is an instanceof RipRapGame",o.getGame1() instanceof RipRapGame);
@@ -121,8 +120,6 @@ public class OverallGameTest {
 	
 	@Test
 	public void setGame2() {
-		gameWindow g = new gameWindow(o);
-		o.setGameWindow(g);
 		ArrayList<Animal> aa = new ArrayList<Animal>();
 		CrabCatcherGame c = new CrabCatcherGame(15.3, aa, 20, 3, 41, null, 21, false, o, g.getFrame());
 		o.setGame2(c);
@@ -131,8 +128,6 @@ public class OverallGameTest {
 	
 	@Test
 	public void setGame3() {
-		gameWindow g = new gameWindow(o);
-		o.setGameWindow(g);
 		Game3 g3 = new Game3(o);
 		o.setGame3(g3);
 		assertTrue("True if getGame3 is an instanceof Game3",o.getGame3() instanceof Game3);
@@ -140,6 +135,7 @@ public class OverallGameTest {
 	
 	@Test
 	public void toStringTest1() {
+		o = new OverallGame();
 		gameWindow w1 = new gameWindow(o);
 		o.setGameWindow(w1);
 		ArrayList<Animal> aa = new ArrayList<Animal>();
@@ -159,6 +155,7 @@ public class OverallGameTest {
 	
 	@Test
 	public void toStringTest2() {
+		o = new OverallGame();
 		gameWindow w1 = new gameWindow(o);
 		o.setGameWindow(w1);
 		ArrayList<Animal> aa = new ArrayList<Animal>();
@@ -178,6 +175,7 @@ public class OverallGameTest {
 	
 	@Test
 	public void toStringTest3() {
+		o = new OverallGame();
 		gameWindow w1 = new gameWindow(o);
 		o.setGameWindow(w1);
 		ArrayList<Animal> aa = new ArrayList<Animal>();

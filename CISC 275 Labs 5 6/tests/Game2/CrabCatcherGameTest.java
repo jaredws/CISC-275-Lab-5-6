@@ -52,7 +52,7 @@ public class CrabCatcherGameTest {
 	 */
 	public static OverallGame makeTestBigGame(){
 		OverallGame bigGame = new OverallGame();
-		frame.setBounds(100, 100, bigGame.frameWidth, bigGame.frameHeight);
+		frame.setBounds(100, 100, OverallGame.frameWidth, OverallGame.frameHeight);
 		//frame.setVisible(false);
 		return bigGame;
 	}
@@ -83,7 +83,9 @@ public class CrabCatcherGameTest {
 		//updates game's timed aspects - call animal.onTick() for all animals
 		for (int i = g.getAnimals().size()-1; i >= 0; i--) {
 			Animal each = g.getAnimals().get(i);
-			if(each != null){each.onTickTest(100, g.getBigGame().frameWidth, g.getBigGame().frameHeight);}
+			if(each != null){g.getBigGame();
+			g.getBigGame();
+			each.onTickTest(100, OverallGame.frameWidth, OverallGame.frameHeight);}
 			if(each.isOffScreen()){g.reAddAnimal(each);}
 		}
 		
@@ -155,11 +157,11 @@ public class CrabCatcherGameTest {
 		
 		//check if offscreen crab is regenerated
 		//(note: crab.isOffscreen will reset to false when it is regenerated, so test location instead)
-		assertTrue("crab should move offscreen", game.getAnimals().get(0).getXloc() == -100 || game.getAnimals().get(0).getXloc() == bigGame.frameWidth);
+		assertTrue("crab should move offscreen", game.getAnimals().get(0).getXloc() == -100 || game.getAnimals().get(0).getXloc() == OverallGame.frameWidth);
 		//check if offscreen crab moves back onscreen
 		fakeUpdateGame(game);
 		assertFalse(game.getAnimals().get(0).isOffScreen());
-		assertTrue("crab should move onscreen", game.getAnimals().get(0).getXloc() > -100 || game.getAnimals().get(0).getXloc() < bigGame.frameWidth);		
+		assertTrue("crab should move onscreen", game.getAnimals().get(0).getXloc() > -100 || game.getAnimals().get(0).getXloc() < OverallGame.frameWidth);		
 	
 		//check if gameOver is triggered by time = end time
 		//check endGame() effects
@@ -310,10 +312,10 @@ public class CrabCatcherGameTest {
 		crab.setXdir(-1);
 		game.addAnimal(crab);
 		
-		assertFalse(game.getAnimals().get(0).offScreen(bigGame.frameWidth, bigGame.frameHeight));
+		assertFalse(game.getAnimals().get(0).offScreen(OverallGame.frameWidth, OverallGame.frameHeight));
 		game.setOffScreenLoc(game.getAnimals().get(0));
 		
-		assertTrue("if moving left should be sent to right border", game.getAnimals().get(0).getXloc() >= bigGame.frameWidth);
+		assertTrue("if moving left should be sent to right border", game.getAnimals().get(0).getXloc() >= OverallGame.frameWidth);
 		
 		game.getAnimals().get(0).setXdir(1);
 		game.setOffScreenLoc(game.getAnimals().get(0));

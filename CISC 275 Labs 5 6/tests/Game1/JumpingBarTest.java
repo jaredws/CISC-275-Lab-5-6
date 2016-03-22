@@ -1,23 +1,30 @@
 package Game1;
 
 import static org.junit.Assert.assertEquals;
-
-import java.awt.Point;
-
+import static org.junit.Assert.assertFalse;
 import javax.swing.JPanel;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import OverallGame.OverallGame;
+import OverallGame.gameWindow;
 
 public class JumpingBarTest {
 	
 	static JumpingBar j;
 	static JumpingBar j2;
+	static JumpingBar j3;
 	static Crab c;
+	static RipRapGame r;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() {
+		OverallGame o = new OverallGame();
+		gameWindow gw = new gameWindow(o);
+		o.setGameWindow(gw);
+		r = new RipRapGame(12,o,gw.getFrame());
+		j3 = new JumpingBar(1,2,r);
 		j = new JumpingBar(0,0, null);
 		JPanel panel=new JPanel();
 		j.makeLabels(panel);
@@ -56,12 +63,47 @@ public class JumpingBarTest {
 		assertEquals(j2.getSpeed(),1);
 	}
 	
-	@Test(expected=NullPointerException.class)
+	@Test
+	public void clickedTest1() {
+		j3.barloc = 10;
+		j3.stop1 = 15;
+		j3.clicked();
+		assertEquals("barloc should be 100",j3.barloc,100);
+	}
+	@Test
+	public void clickedTest2() {
+		j3.barloc = 10;
+		j3.stop1 = 8;
+		j3.stop2 = 7;
+		j3.game.score = 100;
+		j3.clicked();
+		assertEquals("Score should be 200",j3.game.score,200);
+	}
+	
+	@Test
 	public void updateTest() {
 		JPanel jp = new JPanel();
-		jp.setBounds(12, 14, 43, 56);
-		j.makeLabels(jp);
-		j.distTest = 0;
-		j.update(jp);
+		Stone s = new Stone(2, 3, 4);
+		j3.game = r;
+		j3.game.stone = s;
+		j3.game.crab = c;
+		j3.makeLabels(jp);
+		j3.game.score = 105;
+		j3.barloc = 150;
+		j3.update(jp);
+		assertEquals("Score should be 5",j3.game.score,5);
+		j3.passed=true;
+		j3.game.score=0;
+		j3.barloc=90;
+		j3.update(jp);
+		Stone s2 = new Stone(10000000,3,4);
+		j3.game.stone = s2;
+		j3.update(jp);
+		assertFalse("passed should be false",j3.passed);
+		Stone s3 = new Stone(100,3,4);
+		j3.game.stone = s3;
+		j3.update(jp);
+		assertEquals("barloc should be 19",j3.barloc,19);
+		
 	}
 }

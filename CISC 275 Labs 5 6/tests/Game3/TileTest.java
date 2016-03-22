@@ -1,25 +1,14 @@
 package Game3;
 
 import static org.junit.Assert.*;
-
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
-
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import Game1.RipRapGame;
-import Game2.Animal;
-import Game2.CrabCatcherGame;
 import OverallGame.OverallGame;
-import OverallGame.gameWindow;
 
 public class TileTest {
 

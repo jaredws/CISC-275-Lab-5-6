@@ -1,29 +1,33 @@
 package Game2;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ResultAnimationTest {
 	
-	ResultAnimation ra;
+	static ResultAnimation ra;
+	static Image img;
 	
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUpBeforeClass() throws IOException {
 		ra = new ResultAnimation(50, true, 15, 20);
+		img = ImageIO.read(new File("images/coin.png"));
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public static void tearDownAfterClass() {
 		ra = null;
 	}
 	
 	@Test
 	public void updateTest(){
 		ResultAnimation pos = new ResultAnimation(100, true, 0, 0);
-		ResultAnimation neg = new ResultAnimation(100, false, 0, 0);
 		//initial state
 		assertEquals(pos.getPicNum(), 0);
 		assertEquals(pos.getLoops(), 0);
@@ -92,6 +96,16 @@ public class ResultAnimationTest {
 	public void setLoopsTest() {
 		ra.setLoops(13);
 		assertEquals("# of Loops should be 13",ra.getLoops(),13);
+	}
+	
+	@Test
+	public void setImagesTest() {
+		Image[] i = new Image[1];
+		i[0] = img;
+		ra.setImages(i);
+		assertEquals("Image should have the same hashCode as img",ra.getImages()[0].hashCode(),img.hashCode());
+		ra.setPicNum(0);
+		assertEquals("Image should have the same hashCode as img",ra.getCurrentImage().hashCode(),img.hashCode());
 	}
 	
 }

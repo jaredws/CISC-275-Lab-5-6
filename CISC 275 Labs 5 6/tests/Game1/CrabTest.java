@@ -1,25 +1,23 @@
 package Game1;
 
 import static org.junit.Assert.*;
-
 import javax.swing.JLabel;
-
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CrabTest {
 	
 	static Crab c;
 	
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
 		c = new Crab(1,1,1);
 		c.label = new JLabel("test");
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
 		c = null;
 	}
 

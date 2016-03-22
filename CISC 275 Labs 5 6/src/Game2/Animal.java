@@ -1,20 +1,12 @@
 package Game2;
 
 import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
-
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
-
-import Game3.Mussel;
 
 /**
  * @author Dwegrzyn
@@ -43,6 +35,7 @@ public class Animal implements java.io.Serializable {
 	private int step; //speed of animal
 	private static int maxSpeed = 10;
 	private int picNum = 0;
+	boolean offScreenTest;
 		
 	/**All-parameter constructor for deserialization. Not used publicly.
 	 * @param xloc x location of animal
@@ -179,6 +172,7 @@ public class Animal implements java.io.Serializable {
 		this.move();
 		this.updateAnimation((int)game.getTime());
 		this.offScreen = offScreen(game.getBigGame().frameWidth, game.getBigGame().frameHeight);
+		offScreenTest = this.offScreen;
 	}
 	
 	/**for testing purposes only; 

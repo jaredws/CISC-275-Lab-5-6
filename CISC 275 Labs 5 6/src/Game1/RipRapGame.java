@@ -1,8 +1,6 @@
 package Game1;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,23 +15,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.plaf.ProgressBarUI;
-
-import Game2.CrabCatcherGame;
 import OverallGame.OverallGame;
-
-import java.util.Random;
 
 
 /**
@@ -45,6 +33,10 @@ import java.util.Random;
 
 public class RipRapGame implements java.io.Serializable{
 	 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * Get Crab
 	 * @return crab
@@ -194,6 +186,7 @@ public class RipRapGame implements java.io.Serializable{
 	 * init the jpanel
 	 * @return true
 	 */
+	@SuppressWarnings("serial")
 	public boolean initPanel(){
 		try {
 			final BufferedImage image = ImageIO.read(new File("images/rockwall.jpg"));
