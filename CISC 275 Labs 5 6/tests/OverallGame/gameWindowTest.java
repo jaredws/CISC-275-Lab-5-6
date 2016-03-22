@@ -2,9 +2,11 @@ package OverallGame;
 
 import static org.junit.Assert.*;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,6 +23,7 @@ public class gameWindowTest {
 	static OverallGame o;
 	static gameWindow g;
 	boolean[] b = {true,false};
+	static Image img;
 	static Image img1;
 	static Image img2;
 	static Image img3;
@@ -33,6 +36,7 @@ public class gameWindowTest {
 		img1 = ImageIO.read(new File("images/Game1Button.png")).getScaledInstance(Game3.scalor, Game3.scalor, 1);
 		img2 = ImageIO.read(new File("images/Game2Button.png")).getScaledInstance(Game3.scalor, Game3.scalor, 1);
 		img3 = ImageIO.read(new File("images/Game3Button.png")).getScaledInstance(Game3.scalor, Game3.scalor, 1);
+		img	=	ImageIO.read(new File("images/g1b1.png")).getScaledInstance(OverallGame.frameWidth, OverallGame.frameHeight, 1);
 	}
 
 	@AfterClass
@@ -96,7 +100,50 @@ public class gameWindowTest {
 		jf.setBounds(3, 4, 32, 21);
 		g.setFrame(jf);
 		assertEquals("X position of frame is 3",g.getFrame().getX(),3);
-		
+	}
+	
+	@Test
+	public void gameStartAndEndTest() {
+		g.getFrame().setVisible(false);
+		assertFalse("The frame should not be visible",g.getFrame().isVisible());
+		g.gameStartAndEnd();
+		assertTrue("The frame should be visible after gameStartAndEnd",g.getFrame().isVisible());
+	}
+	
+	@Test
+	public void gameIntrosTest() {
+		g.getBigGame().setGamesRunning(1);
+		g.gameIntros();
+		g.getBigGame().setGamesRunning(2);
+		g.gameIntros();
+		g.getBigGame().setGamesRunning(3);
+		g.gameIntros();
+		g.getBigGame().setGamesRunning(0);
+		g.gameIntros();
+	}
+	
+	@Test
+	public void gameAnimTest1() {
+		g.time = 104;
+		g.getBigGame().setGamesRunning(1);
+		g.gameAnim();
+		assertEquals("Time for game should be 0",g.getBigGame().getGame1().getTime(),0);
+	}
+	
+	@Test
+	public void gameAnimTest2() {
+		g.time = 104;
+		g.getBigGame().setGamesRunning(2);
+		g.gameAnim();
+		assertEquals("Speed for game should be 0",(int)g.getBigGame().getGame2().getSpeed(),0);
+	}
+	
+	@Test
+	public void gameAnimTest3() {
+		g.time = 104;
+		g.getBigGame().setGamesRunning(3);
+		g.gameAnim();
+		assertEquals("Time for Game3 should be 40",(int)g.getBigGame().getGame3().getTime(),39);
 	}
 	
 }
